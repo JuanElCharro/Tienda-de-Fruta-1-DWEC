@@ -1,0 +1,16 @@
+.center {
+    text-align: center;
+    font-size: 55px;
+    background-color: palegoldenrod;
+}
+
+.titulo{
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    background-color: crimson;
+}
+
+.fruta {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 25px;
+}

@@ -1,7 +1,12 @@
 .center {
     text-align: center;
     font-size: 55px;
-    background-color: palegoldenrod;
+    background-color: rgb(212, 212, 212);
+}
+
+.info{
+    font-size: 20px;
+    font-style: italic;
 }
 
 .titulo{

@@ -1,4 +1,7 @@
-function addPiña(){
+//Funciones onclick() de cada fruta
+
+/* Testing
+    function addPiña(){
     let fruta = 4;
     alert("Añadido un kilo de Piña");
     return fruta;
@@ -62,4 +65,41 @@ function addPapaya(){
     let fruta = 8;
     alert("Añadido un kilo de Papaya ");
     return fruta;
+}
+*/
+
+var precioPinna = 0;
+var precioPomelo = 0;
+var contenidoP;
+
+function principal(){
+    alert("Pulse en cada imagen para añadir un kilo a la compra");
+
+    let pina = document.getElementById("pinna");
+    pina.addEventListener("click", () => {
+
+        alert("Añadido 1kg de Piña");
+        precioPinna = precioPinna + 4;
+
+        let parrafoP = document.createElement("p");
+        parrafoP.id="p1";
+        contenidoP = document.createTextNode(" Piña: " + precioPinna + "€");
+        parrafoP.appendChild(contenidoP);
+        document.body.appendChild(parrafoP);
+
+    })
+
+    let pomelo = document.getElementById("pomelo");
+    pomelo.addEventListener("click", () => {
+
+        alert("Añadido 1kg de Pomelo");
+        precioPomelo = precioPomelo + 15;
+
+        let parrafoP = document.createElement("p");
+        parrafoP.id="p1";
+        contenidoP = document.createTextNode(" Piña: " + precioPomelo + "€");
+        parrafoP.appendChild(contenidoP);
+        document.body.appendChild(parrafoP);
+
+    })
 }

@@ -68,8 +68,7 @@ function addPapaya(){
 }
 */
 
-var precioPinna = 0;
-var precioPomelo = 0;
+var precio = [0,0,0,0,0,0,0,0,0,0,0];
 var contenidoP;
 
 function principal(){
@@ -79,27 +78,38 @@ function principal(){
     pina.addEventListener("click", () => {
 
         alert("Añadido 1kg de Piña");
-        precioPinna = precioPinna + 4;
+        precio[0] = precio[0] + 4;
 
         let parrafoP = document.createElement("p");
         parrafoP.id="p1";
-        contenidoP = document.createTextNode(" Piña: " + precioPinna + "€");
+        contenidoP = document.createTextNode(" Piña: " + precio[0] + "€");
         parrafoP.appendChild(contenidoP);
         document.body.appendChild(parrafoP);
-
     })
 
     let pomelo = document.getElementById("pomelo");
     pomelo.addEventListener("click", () => {
 
         alert("Añadido 1kg de Pomelo");
-        precioPomelo = precioPomelo + 15;
+        precio[1] = precio[1] + 15;
 
         let parrafoP = document.createElement("p");
         parrafoP.id="p1";
-        contenidoP = document.createTextNode(" Piña: " + precioPomelo + "€");
+        contenidoP = document.createTextNode(" Pomelo: " + precio[1] + "€");
         parrafoP.appendChild(contenidoP);
         document.body.appendChild(parrafoP);
+    })
 
+    let castanna = document.getElementById("castanna");
+    castanna.addEventListener("click", () => {
+
+        alert("Añadido 1kg de Castaña");
+        precio[2] = precio[2] + 1;
+
+        let parrafoP = document.createElement("p");
+        parrafoP.id="p1";
+        contenidoP = document.createTextNode(" Castaña: " + precio[2] + "€");
+        parrafoP.appendChild(contenidoP);
+        document.body.appendChild(parrafoP);
     })
 }

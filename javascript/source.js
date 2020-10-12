@@ -252,6 +252,9 @@ function principal() {
 
 }
 
+/**
+ * Función para mostrar precio Total y Precio Medio
+ */
 function resultadoFinal() {
 
     for (let index = 0; index < precio.length; index++) {

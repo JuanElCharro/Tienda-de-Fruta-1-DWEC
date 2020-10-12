@@ -1,6 +1,6 @@
 //Funciones onclick() de cada fruta
 
-/* Testing
+/* Pruebas de pulsación
     function addPiña(){
     let fruta = 4;
     alert("Añadido un kilo de Piña");
@@ -68,9 +68,17 @@ function addPapaya(){
 }
 */
 
+/**
+ * Variables
+ */
 var precio = [0,0,0,0,0,0,0,0,0,0,0];
+var kilos = [0,0,0,0,0,0,0,0,0,0,0];
 var contenidoP;
+var parrafoP;
 
+/**
+ * Función Principal
+ */
 function principal(){
     alert("Pulse en cada imagen para añadir un kilo a la compra");
 
@@ -79,10 +87,11 @@ function principal(){
 
         alert("Añadido 1kg de Piña");
         precio[0] = precio[0] + 4;
+        kilos[0] = kilos[0] + 1;
 
-        let parrafoP = document.createElement("p");
+        parrafoP = document.createElement("p");
         parrafoP.id="p1";
-        contenidoP = document.createTextNode(" Piña: " + precio[0] + "€");
+        contenidoP = document.createTextNode(" Piña --- " + kilos[0] + " kilo(s)");
         parrafoP.appendChild(contenidoP);
         document.body.appendChild(parrafoP);
     })
@@ -92,10 +101,11 @@ function principal(){
 
         alert("Añadido 1kg de Pomelo");
         precio[1] = precio[1] + 15;
+        kilos[1] = kilos[1] + 1;
 
-        let parrafoP = document.createElement("p");
+        parrafoP = document.createElement("p");
         parrafoP.id="p1";
-        contenidoP = document.createTextNode(" Pomelo: " + precio[1] + "€");
+        contenidoP = document.createTextNode(" Pomelo --- " + kilos[1] + " kilo(s)");
         parrafoP.appendChild(contenidoP);
         document.body.appendChild(parrafoP);
     })
@@ -105,10 +115,123 @@ function principal(){
 
         alert("Añadido 1kg de Castaña");
         precio[2] = precio[2] + 1;
+        kilos[2] = kilos[2] + 1;
 
-        let parrafoP = document.createElement("p");
+        parrafoP = document.createElement("p");
         parrafoP.id="p1";
-        contenidoP = document.createTextNode(" Castaña: " + precio[2] + "€");
+        contenidoP = document.createTextNode(" Castaña --- " + kilos[2] + " kilo(s)");
+        parrafoP.appendChild(contenidoP);
+        document.body.appendChild(parrafoP);
+    })
+
+    let coco = document.getElementById("coco");
+    coco.addEventListener("click", () => {
+
+        alert("Añadido 1kg de Coco");
+        precio[3] = precio[3] + 1;
+        kilos[3] = kilos[3] + 1;
+
+        parrafoP = document.createElement("p");
+        parrafoP.id="p1";
+        contenidoP = document.createTextNode(" Coco --- " + kilos[3] + " kilo(s)");
+        parrafoP.appendChild(contenidoP);
+        document.body.appendChild(parrafoP);
+    })
+
+    let fresa = document.getElementById("fresa");
+    fresa.addEventListener("click", () => {
+
+        alert("Añadido 1kg de Fresa");
+        precio[4] = precio[4] + 1;
+        kilos[4] = kilos[4] + 1;
+
+        parrafoP = document.createElement("p");
+        parrafoP.id="p1";
+        contenidoP = document.createTextNode(" Fresa --- " + kilos[4] + " kilo(s)");
+        parrafoP.appendChild(contenidoP);
+        document.body.appendChild(parrafoP);
+    })
+
+    let grosella = document.getElementById("grosella");
+    grosella.addEventListener("click", () => {
+
+        alert("Añadido 1kg de Grosella");
+        precio[5] = precio[5] + 1;
+        kilos[5] = kilos[5] + 1;
+
+        parrafoP = document.createElement("p");
+        parrafoP.id="p1";
+        contenidoP = document.createTextNode(" Grosella --- " + kilos[5] + " kilo(s)");
+        parrafoP.appendChild(contenidoP);
+        document.body.appendChild(parrafoP);
+    })
+
+    let higo = document.getElementById("higo");
+    higo.addEventListener("click", () => {
+
+        alert("Añadido 1kg de Higo");
+        precio[6] = precio[6] + 1;
+        kilos[6] = kilos[6] + 1;
+
+        parrafoP = document.createElement("p");
+        parrafoP.id="p1";
+        contenidoP = document.createTextNode(" Higo --- " + kilos[6] + " kilo(s)");
+        parrafoP.appendChild(contenidoP);
+        document.body.appendChild(parrafoP);
+    })
+
+    let lichi = document.getElementById("lichi");
+    lichi.addEventListener("click", () => {
+
+        alert("Añadido 1kg de Lichi");
+        precio[7] = precio[7] + 1;
+        kilos[7] = kilos[7] + 1;
+
+        parrafoP = document.createElement("p");
+        parrafoP.id="p1";
+        contenidoP = document.createTextNode(" Lichi --- " + kilos[7] + " kilo(s)");
+        parrafoP.appendChild(contenidoP);
+        document.body.appendChild(parrafoP);
+    })
+
+    let mora = document.getElementById("mora");
+    mora.addEventListener("click", () => {
+
+        alert("Añadido 1kg de Mora");
+        precio[8] = precio[8] + 1;
+        kilos[8] = kilos[8] + 1;
+
+        parrafoP = document.createElement("p");
+        parrafoP.id="p1";
+        contenidoP = document.createTextNode(" Mora --- " + kilos[8] + " kilo(s)");
+        parrafoP.appendChild(contenidoP);
+        document.body.appendChild(parrafoP);
+    })
+
+    let naranja = document.getElementById("naranja");
+    naranja.addEventListener("click", () => {
+
+        alert("Añadido 1kg de Naranja");
+        precio[9] = precio[9] + 1;
+        kilos[9] = kilos[9] + 1;
+
+        parrafoP = document.createElement("p");
+        parrafoP.id="p1";
+        contenidoP = document.createTextNode(" Naranja --- " + kilos[9] + " kilo(s)");
+        parrafoP.appendChild(contenidoP);
+        document.body.appendChild(parrafoP);
+    })
+
+    let papaya = document.getElementById("papaya");
+    papaya.addEventListener("click", () => {
+
+        alert("Añadido 1kg de Papaya");
+        precio[10] = precio[10] + 1;
+        kilos[10] = kilos[10] + 1;
+
+        parrafoP = document.createElement("p");
+        parrafoP.id="p1";
+        contenidoP = document.createTextNode(" Papaya --- " + kilos[10] + " kilo(s)");
         parrafoP.appendChild(contenidoP);
         document.body.appendChild(parrafoP);
     })

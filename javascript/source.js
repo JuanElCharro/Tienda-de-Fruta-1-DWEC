@@ -71,15 +71,18 @@ function addPapaya(){
 /**
  * Variables
  */
-var precio = [0,0,0,0,0,0,0,0,0,0,0];
-var kilos = [0,0,0,0,0,0,0,0,0,0,0];
+var precio = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var precioTotal = 0;
+var kilos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var contador = 0;
+var precioMedio = 0;
 var contenidoP;
 var parrafoP;
 
 /**
  * Función Principal
  */
-function principal(){
+function principal() {
     alert("Pulse en cada imagen para añadir un kilo a la compra");
 
     let pina = document.getElementById("pinna");
@@ -88,9 +91,10 @@ function principal(){
         alert("Añadido 1kg de Piña");
         precio[0] = precio[0] + 4;
         kilos[0] = kilos[0] + 1;
+        contador++;
 
         parrafoP = document.createElement("p");
-        parrafoP.id="p1";
+        parrafoP.id = "p1";
         contenidoP = document.createTextNode(" Piña --- " + kilos[0] + " kilo(s)");
         parrafoP.appendChild(contenidoP);
         document.body.appendChild(parrafoP);
@@ -102,9 +106,10 @@ function principal(){
         alert("Añadido 1kg de Pomelo");
         precio[1] = precio[1] + 15;
         kilos[1] = kilos[1] + 1;
+        contador++;
 
         parrafoP = document.createElement("p");
-        parrafoP.id="p1";
+        parrafoP.id = "p1";
         contenidoP = document.createTextNode(" Pomelo --- " + kilos[1] + " kilo(s)");
         parrafoP.appendChild(contenidoP);
         document.body.appendChild(parrafoP);
@@ -116,9 +121,10 @@ function principal(){
         alert("Añadido 1kg de Castaña");
         precio[2] = precio[2] + 1;
         kilos[2] = kilos[2] + 1;
+        contador++;
 
         parrafoP = document.createElement("p");
-        parrafoP.id="p1";
+        parrafoP.id = "p1";
         contenidoP = document.createTextNode(" Castaña --- " + kilos[2] + " kilo(s)");
         parrafoP.appendChild(contenidoP);
         document.body.appendChild(parrafoP);
@@ -130,9 +136,10 @@ function principal(){
         alert("Añadido 1kg de Coco");
         precio[3] = precio[3] + 1;
         kilos[3] = kilos[3] + 1;
+        contador++;
 
         parrafoP = document.createElement("p");
-        parrafoP.id="p1";
+        parrafoP.id = "p1";
         contenidoP = document.createTextNode(" Coco --- " + kilos[3] + " kilo(s)");
         parrafoP.appendChild(contenidoP);
         document.body.appendChild(parrafoP);
@@ -144,9 +151,10 @@ function principal(){
         alert("Añadido 1kg de Fresa");
         precio[4] = precio[4] + 1;
         kilos[4] = kilos[4] + 1;
+        contador++;
 
         parrafoP = document.createElement("p");
-        parrafoP.id="p1";
+        parrafoP.id = "p1";
         contenidoP = document.createTextNode(" Fresa --- " + kilos[4] + " kilo(s)");
         parrafoP.appendChild(contenidoP);
         document.body.appendChild(parrafoP);
@@ -158,9 +166,10 @@ function principal(){
         alert("Añadido 1kg de Grosella");
         precio[5] = precio[5] + 1;
         kilos[5] = kilos[5] + 1;
+        contador++;
 
         parrafoP = document.createElement("p");
-        parrafoP.id="p1";
+        parrafoP.id = "p1";
         contenidoP = document.createTextNode(" Grosella --- " + kilos[5] + " kilo(s)");
         parrafoP.appendChild(contenidoP);
         document.body.appendChild(parrafoP);
@@ -172,9 +181,10 @@ function principal(){
         alert("Añadido 1kg de Higo");
         precio[6] = precio[6] + 1;
         kilos[6] = kilos[6] + 1;
+        contador++;
 
         parrafoP = document.createElement("p");
-        parrafoP.id="p1";
+        parrafoP.id = "p1";
         contenidoP = document.createTextNode(" Higo --- " + kilos[6] + " kilo(s)");
         parrafoP.appendChild(contenidoP);
         document.body.appendChild(parrafoP);
@@ -186,9 +196,10 @@ function principal(){
         alert("Añadido 1kg de Lichi");
         precio[7] = precio[7] + 1;
         kilos[7] = kilos[7] + 1;
+        contador++;
 
         parrafoP = document.createElement("p");
-        parrafoP.id="p1";
+        parrafoP.id = "p1";
         contenidoP = document.createTextNode(" Lichi --- " + kilos[7] + " kilo(s)");
         parrafoP.appendChild(contenidoP);
         document.body.appendChild(parrafoP);
@@ -200,9 +211,10 @@ function principal(){
         alert("Añadido 1kg de Mora");
         precio[8] = precio[8] + 1;
         kilos[8] = kilos[8] + 1;
+        contador++;
 
         parrafoP = document.createElement("p");
-        parrafoP.id="p1";
+        parrafoP.id = "p1";
         contenidoP = document.createTextNode(" Mora --- " + kilos[8] + " kilo(s)");
         parrafoP.appendChild(contenidoP);
         document.body.appendChild(parrafoP);
@@ -214,9 +226,10 @@ function principal(){
         alert("Añadido 1kg de Naranja");
         precio[9] = precio[9] + 1;
         kilos[9] = kilos[9] + 1;
+        contador++;
 
         parrafoP = document.createElement("p");
-        parrafoP.id="p1";
+        parrafoP.id = "p1";
         contenidoP = document.createTextNode(" Naranja --- " + kilos[9] + " kilo(s)");
         parrafoP.appendChild(contenidoP);
         document.body.appendChild(parrafoP);
@@ -228,11 +241,35 @@ function principal(){
         alert("Añadido 1kg de Papaya");
         precio[10] = precio[10] + 1;
         kilos[10] = kilos[10] + 1;
+        contador++;
 
         parrafoP = document.createElement("p");
-        parrafoP.id="p1";
+        parrafoP.id = "p1";
         contenidoP = document.createTextNode(" Papaya --- " + kilos[10] + " kilo(s)");
         parrafoP.appendChild(contenidoP);
         document.body.appendChild(parrafoP);
     })
+
+}
+
+function resultadoFinal() {
+
+    for (let index = 0; index < precio.length; index++) {
+        precioTotal = precioTotal + precio[index];
+    }
+
+    parrafoP = document.createElement("p");
+    parrafoP.id = "p1";
+    contenidoP = document.createTextNode(" Precio Total --- " + precioTotal + " €");
+    parrafoP.appendChild(contenidoP);
+    document.body.appendChild(parrafoP);
+
+    PrecioMedio = (precioTotal/contador);
+
+    parrafoP = document.createElement("p");
+    parrafoP.id = "p1";
+    contenidoP = document.createTextNode(" Precio Medio --- " + PrecioMedio + " €/kg");
+    parrafoP.appendChild(contenidoP);
+    document.body.appendChild(parrafoP);
+
 }

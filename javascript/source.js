@@ -2,25 +2,13 @@
 //Variables Globales & Arrays
 var precio = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var kilos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var nombreDeFrutas = ["pinna", "pomelo", "castanna", "coco", "fresa", "grosella", "higo", "lichi", "mora", "naranja", "papaya"];
 
 var precioTotal = 0;
 var contador = 0;
 var precioMedio = 0;
 var contenidoP;
 var parrafoP;
-
-//Objetos
-var pinnaObject = new FrutaVerano("Piña", 0, 4, true, "España");
-var pomeloObject = new FrutaVerano("Pomelo", 0, 15, false, "Chile");
-var castannaObject = new FrutaInvierno("Castaña", 0, 1, false);
-var cocoObject = new FrutaVerano("Coco", 0, 6, false, "Panamá");
-var fresaObject = new FrutaVerano("Fresa", 0, 2, true, "España");
-var grosellaObject = new FrutaInvierno("Grosella", 0, 10, true);
-var higoObject = new FrutaInvierno("Higo", 0, 5, false);
-var lichiObject = new FrutaInvierno("Lichi", 0, 20, true);
-var moraObject = new FrutaInvierno("Mora", 0, 7, true);
-var naranjaObject = new FrutaVerano("Naranja", 0, 2, true, "España");
-var papayaObject = new FrutaVerano("Papaya", 0, 8, false, "Ecuador");
 
 /**
  * Clases Fruta: Principal, Frutas de verano y Frutas de invierno.
@@ -37,6 +25,7 @@ class Fruta{
     }
 }
 
+// Frutas de verano y de invierno extienden de la principal
 class FrutaVerano extends Fruta{
     constructor(nombre, kilos, precio, proximidad, region){
         super(nombre, kilos, precio);
@@ -55,57 +44,88 @@ class FrutaInvierno extends Fruta{
     }
 }
 
-/**
- * Función que determina el tipo de fruta al pulsar en la imagen.
- * @param {} tipoDeFruta 
- */
-function tipoDeFruta(nombreFrutaPulsada){
-    var frutaDevuelta = nombreFrutaPulsada;
-    return frutaDevuelta;
-}
+//Objetos, me daban error al colocarlos encima de las clases Fruta, ahora ya no.
+var pinnaObject = new FrutaVerano("Piña", 0, 4, true, "España");
+var pomeloObject = new FrutaVerano("Pomelo", 0, 15, false, "Chile");
+var castannaObject = new FrutaInvierno("Castaña", 0, 1, false);
+var cocoObject = new FrutaVerano("Coco", 0, 6, false, "Panamá");
+var fresaObject = new FrutaVerano("Fresa", 0, 2, true, "España");
+var grosellaObject = new FrutaInvierno("Grosella", 0, 10, true);
+var higoObject = new FrutaInvierno("Higo", 0, 5, false);
+var lichiObject = new FrutaInvierno("Lichi", 0, 20, true);
+var moraObject = new FrutaInvierno("Mora", 0, 7, true);
+var naranjaObject = new FrutaVerano("Naranja", 0, 2, true, "España");
+var papayaObject = new FrutaVerano("Papaya", 0, 8, false, "Ecuador");
 
 /**
  * Función Principal
  */
-function principal() {
-    alert("Pulse en cada imagen para añadir un kilo a la compra");
+function principal(frutaPulsada) {
+    let cantidad = parseInt(prompt("INTRODUZCA LOS KILOS: "));
 
-    let nomFruit = tipoDeFruta(nombreFrutaPulsada);
-    let cantidad = prompt("INTRODUZCA LOS KILOS: ");
-
-    switch(nomFruit){
+    switch(frutaPulsada){
         case "pinna":
             pinnaObject.cantidad = pinnaObject.cantidad + cantidad;
+            kilos[0] = pinnaObject.cantidad;
+
+            for (let index = 0; index < pinnaObject.cantidad; index++) {
+                pinnaObject.precio = pinnaObject.precio + 4;
+                contador++;
+            }
+            precio[0] = pinnaObject.precio;
+            
+            let parrafoP = document.createElement("p");
+            parrafoP.id = "p1";
+            contenidoP = document.createTextNode(" Piña --- " + pinnaObject.cantidad + " kilo(s)");
+            parrafoP.appendChild(contenidoP);
+            document.body.appendChild(parrafoP);
+
+            parrafoP2 = document.createElement("p");
+            parrafoP2.id = "p1";
+            contenidoP2 = document.createTextNode(" Piña --- " + pinnaObject.precio + " euro(s)");
+            parrafoP2.appendChild(contenidoP2);
+            document.body.appendChild(parrafoP2);
+
             break;
         case "pomelo":
-            pomeloObject.cantidad = pomeloObject.cantidad + cantidad;
+            pomeloObject.cantidad = 
+                pomeloObject.cantidad + cantidad;
             break;
         case "castanna":
-            castannaObject.cantidad = castannaObject.cantidad + cantidad;
+            castannaObject.cantidad = 
+                castannaObject.cantidad + cantidad;
             break;
         case "coco":
-            cocoObject.cantidad = cocoObject.cantidad + cantidad;
+            cocoObject.cantidad = 
+                cocoObject.cantidad + cantidad;
             break;
         case "fresa":
-            fresaObject.cantidad = fresaObject.cantidad + cantidad;
+            fresaObject.cantidad = 
+                fresaObject.cantidad + cantidad;
             break;
         case "grosella":
-            grosellaObject.cantidad = grosellaObject.cantidad + cantidad;
+            grosellaObject.cantidad = 
+                grosellaObject.cantidad + cantidad;
             break;
         case "higo":
-            higoObject.cantidad = higoObject.cantidad + cantidad;
+            higoObject.cantidad = 
+                higoObject.cantidad + cantidad;
             break;
         case "lichi":
-            lichiObject.cantidad = lichiObject.cantidad + cantidad;
+            lichiObject.cantidad = 
+                lichiObject.cantidad + cantidad;
             break;
         case "mora":
-            moraObject.cantidad = moraObject.cantidad + cantidad;
+            moraObject.cantidad = 
+                moraObject.cantidad + cantidad;
             break;
         case "naranja":
-            naranjaObject.cantidad = naranjaObject.cantidad + cantidad;
+            naranjaObject.cantidad = 
+                naranjaObject.cantidad + cantidad;
             break;
         case "papaya":
-            papayaObject.cantidad = papayaObject.cantidad + cantidad;
+            papayaObject.cantidad = 
+                papayaObject.cantidad + cantidad;
             break;
     }
 

@@ -1,83 +1,68 @@
-//Funciones onclick() de cada fruta
 
-/* Pruebas de pulsación
-    function addPiña(){
-    let fruta = 4;
-    alert("Añadido un kilo de Piña");
-    return fruta;
-}
-
-function addPomelo(){
-    let fruta = 15;
-    alert("Añadido un kilo de Pomelo");
-    return fruta;
-}
-
-function addCastaña(){
-    let fruta = 1;
-    alert("Añadido un kilo de Castaña ");
-    return fruta;
-}
-
-function addCoco(){
-    let fruta = 6;
-    alert("Añadido un kilo de Coco ");
-    return fruta;
-}
-
-function addFresa(){
-    let fruta = 2;
-    alert("Añadido un kilo de Fresa ");
-    return fruta;
-}
-
-function addGrosella(){
-    let fruta = 10;
-    alert("Añadido un kilo de Grosella ");
-    return fruta;
-}
-
-function addHigo(){
-    let fruta = 5;
-    alert("Añadido un kilo de Higo ");
-    return fruta;
-}
-
-function addLichi(){
-    let fruta = 20;
-    alert("Añadido un kilo de Lichi ");
-    return fruta;
-}
-
-function addMora(){
-    let fruta = 7;
-    alert("Añadido un kilo de Mora ");
-    return fruta;
-}
-
-function addNaranja(){
-    let fruta = 2;
-    alert("Añadido un kilo de Naranja ");
-    return fruta;
-}
-
-function addPapaya(){
-    let fruta = 8;
-    alert("Añadido un kilo de Papaya ");
-    return fruta;
-}
-*/
-
-/**
- * Variables
- */
+//Variables Globales & Arrays
 var precio = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-var precioTotal = 0;
 var kilos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+var precioTotal = 0;
 var contador = 0;
 var precioMedio = 0;
 var contenidoP;
 var parrafoP;
+
+//Objetos
+var pinnaObject = new FrutaVerano("Piña", 0, 4, true, "España");
+var pomeloObject = new FrutaVerano("Pomelo", 0, 15, false, "Chile");
+var castannaObject = new FrutaInvierno("Castaña", 0, 1, false);
+var cocoObject = new FrutaVerano("Coco", 0, 6, false, "Panamá");
+var fresaObject = new FrutaVerano("Fresa", 0, 2, true, "España");
+var grosellaObject = new FrutaInvierno("Grosella", 0, 10, true);
+var higoObject = new FrutaInvierno("Higo", 0, 5, false);
+var lichiObject = new FrutaInvierno("Lichi", 0, 20, true);
+var moraObject = new FrutaInvierno("Mora", 0, 7, true);
+var naranjaObject = new FrutaVerano("Naranja", 0, 2, true, "España");
+var papayaObject = new FrutaVerano("Papaya", 0, 8, false, "Ecuador");
+
+/**
+ * Clases Fruta: Principal, Frutas de verano y Frutas de invierno.
+ */
+class Fruta{
+    constructor(nombre, kilos, precio){
+        this.nombre = nombre;
+        this.kilos = kilos;
+        this.precio = precio;
+    }
+
+    getFruta(){
+        return " " + this.nombre + " nombre " + this.kilos + " kilos " + this.precio + " €/kg "+ (this.precio * this.kilos) + " ";
+    }
+}
+
+class FrutaVerano extends Fruta{
+    constructor(nombre, kilos, precio, proximidad, region){
+        super(nombre, kilos, precio);
+
+        this.proximidad = proximidad;
+        this.region = region;
+    }
+
+}
+
+class FrutaInvierno extends Fruta{
+    constructor(nombre, kilos, precio, nevera){
+        super(nombre, kilos, precio);
+
+        this.nevera = nevera;
+    }
+}
+
+/**
+ * Función que determina el tipo de fruta al pulsar en la imagen.
+ * @param {} tipoDeFruta 
+ */
+function tipoDeFruta(nombreFrutaPulsada){
+    var frutaDevuelta = nombreFrutaPulsada;
+    return frutaDevuelta;
+}
 
 /**
  * Función Principal
@@ -85,13 +70,53 @@ var parrafoP;
 function principal() {
     alert("Pulse en cada imagen para añadir un kilo a la compra");
 
+    let nomFruit = tipoDeFruta(nombreFrutaPulsada);
+    let cantidad = prompt("INTRODUZCA LOS KILOS: ");
+
+    switch(nomFruit){
+        case "pinna":
+            pinnaObject.cantidad = pinnaObject.cantidad + cantidad;
+            break;
+        case "pomelo":
+            pomeloObject.cantidad = pomeloObject.cantidad + cantidad;
+            break;
+        case "castanna":
+            castannaObject.cantidad = castannaObject.cantidad + cantidad;
+            break;
+        case "coco":
+            cocoObject.cantidad = cocoObject.cantidad + cantidad;
+            break;
+        case "fresa":
+            fresaObject.cantidad = fresaObject.cantidad + cantidad;
+            break;
+        case "grosella":
+            grosellaObject.cantidad = grosellaObject.cantidad + cantidad;
+            break;
+        case "higo":
+            higoObject.cantidad = higoObject.cantidad + cantidad;
+            break;
+        case "lichi":
+            lichiObject.cantidad = lichiObject.cantidad + cantidad;
+            break;
+        case "mora":
+            moraObject.cantidad = moraObject.cantidad + cantidad;
+            break;
+        case "naranja":
+            naranjaObject.cantidad = naranjaObject.cantidad + cantidad;
+            break;
+        case "papaya":
+            papayaObject.cantidad = papayaObject.cantidad + cantidad;
+            break;
+    }
+
+    /*
     let pina = document.getElementById("pinna");
     pina.addEventListener("click", () => {
 
         alert("Añadido 1kg de Piña");
         precio[0] = precio[0] + 4;
         kilos[0] = kilos[0] + 1;
-        contador++;
+        contador++; 
 
         parrafoP = document.createElement("p");
         parrafoP.id = "p1";
@@ -249,7 +274,8 @@ function principal() {
         parrafoP.appendChild(contenidoP);
         document.body.appendChild(parrafoP);
     })
-
+ 
+    */
 }
 
 /**

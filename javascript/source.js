@@ -65,7 +65,9 @@ function principal(frutaPulsada) {
 
     switch(frutaPulsada){
         case "pinna":
-            pinnaObject.cantidad = pinnaObject.cantidad + cantidad;
+            pinnaObject.cantidad = 
+                pinnaObject.cantidad + cantidad;
+
             kilos[0] = pinnaObject.cantidad;
 
             for (let index = 0; index < pinnaObject.cantidad; index++) {
@@ -74,17 +76,8 @@ function principal(frutaPulsada) {
             }
             precio[0] = pinnaObject.precio;
             
-            let parrafoP = document.createElement("p");
-            parrafoP.id = "p1";
-            contenidoP = document.createTextNode(" Piña --- " + pinnaObject.cantidad + " kilo(s)");
-            parrafoP.appendChild(contenidoP);
-            document.body.appendChild(parrafoP);
-
-            parrafoP2 = document.createElement("p");
-            parrafoP2.id = "p1";
-            contenidoP2 = document.createTextNode(" Piña --- " + pinnaObject.precio + " euro(s)");
-            parrafoP2.appendChild(contenidoP2);
-            document.body.appendChild(parrafoP2);
+            document.getElementById("p1").innerHTML = (" Piña --- " + pinnaObject.cantidad + " kilo(s)");
+            document.getElementById("p2").innerHTML = (" Piña --- " + pinnaObject.precio + " euro(s)");
 
             break;
         case "pomelo":

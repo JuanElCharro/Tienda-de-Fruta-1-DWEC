@@ -220,7 +220,7 @@ function principal(frutaPulsada) {
 }
 
 /**
- * Función para mostrar precio Total y Precio Medio
+ * Función para mostrar precio Total y Precio Medio.
  */
 function resultadoFinal() {
 
@@ -228,18 +228,7 @@ function resultadoFinal() {
         precioTotal = precioTotal + precio[index];
     }
 
-    parrafoP = document.createElement("p");
-    parrafoP.id = "p1";
-    contenidoP = document.createTextNode(" Precio Total --- " + precioTotal + " €");
-    parrafoP.appendChild(contenidoP);
-    document.body.appendChild(parrafoP);
-
+    document.getElementById("p12").innerHTML = (" Precio Total --- " + precioTotal + " €");
     PrecioMedio = (precioTotal / contador);
-
-    parrafoP = document.createElement("p");
-    parrafoP.id = "p1";
-    contenidoP = document.createTextNode(" Precio Medio --- " + PrecioMedio + " €/kg");
-    parrafoP.appendChild(contenidoP);
-    document.body.appendChild(parrafoP);
-
+    document.getElementById("p13").innerHTML = (" Precio Medio --- " + PrecioMedio.toFixed(2) + " €/kg");
 }

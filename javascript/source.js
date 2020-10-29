@@ -45,17 +45,17 @@ class FrutaInvierno extends Fruta {
 }
 
 //Objetos, me daban error al colocarlos encima de las clases Fruta, ahora ya no.
-var pinnaObject = new FrutaVerano("Piña", 0, 4, true, "España");
-var pomeloObject = new FrutaVerano("Pomelo", 0, 15, false, "Chile");
-var castannaObject = new FrutaInvierno("Castaña", 0, 1, false);
-var cocoObject = new FrutaVerano("Coco", 0, 6, false, "Panamá");
-var fresaObject = new FrutaVerano("Fresa", 0, 2, true, "España");
-var grosellaObject = new FrutaInvierno("Grosella", 0, 10, true);
-var higoObject = new FrutaInvierno("Higo", 0, 5, false);
-var lichiObject = new FrutaInvierno("Lichi", 0, 20, true);
-var moraObject = new FrutaInvierno("Mora", 0, 7, true);
-var naranjaObject = new FrutaVerano("Naranja", 0, 2, true, "España");
-var papayaObject = new FrutaVerano("Papaya", 0, 8, false, "Ecuador");
+var pinnaObject = new FrutaVerano("Piña", 0, 4.1, true, "España");
+var pomeloObject = new FrutaVerano("Pomelo", 0, 15.2, false, "Chile");
+var castannaObject = new FrutaInvierno("Castaña", 0, 1.3, false);
+var cocoObject = new FrutaVerano("Coco", 0, 6.4, false, "Panamá");
+var fresaObject = new FrutaVerano("Fresa", 0, 2.5, true, "España");
+var grosellaObject = new FrutaInvierno("Grosella", 0, 10.6, true);
+var higoObject = new FrutaInvierno("Higo", 0, 5.7, false);
+var lichiObject = new FrutaInvierno("Lichi", 0, 20.8, true);
+var moraObject = new FrutaInvierno("Mora", 0, 7.9, true);
+var naranjaObject = new FrutaVerano("Naranja", 0, 2.11, true, "España");
+var papayaObject = new FrutaVerano("Papaya", 0, 8.12, false, "Ecuador");
 
 /**
  * Función Principal
@@ -194,11 +194,15 @@ function principal(frutaPulsada) {
  */
 function precioTotalFunc(){
     var precioTotal = 0;
-    
+
     for (let index = 0; index < precio.length; index++) { 
         precioTotal = precioTotal + precio[index];
     }
     return precioTotal;
+}
+
+function ventanaInviernoVerano(){
+
 }
 
 /**
@@ -230,6 +234,6 @@ function resultadoFinal() {
     //Media y Precio Total
     document.getElementById("p12").innerHTML = (" Precio Total --- " + (Math.floor(precioTotal*100)/100).toFixed(2) + " €");
     PrecioMedio = (precioTotal / contador);
-    document.getElementById("p13").innerHTML = (" Precio Medio --- " +  PrecioMedio.toFixed(3) + " €/kg"); //MathFloor
+    document.getElementById("p13").innerHTML = (" Precio Medio --- " +  PrecioMedio.toFixed(3) + " €/kg");
 
 }

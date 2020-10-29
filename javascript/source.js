@@ -4,7 +4,6 @@ var precio = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var kilos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var nombreDeFrutas = ["pinna", "pomelo", "castanna", "coco", "fresa", "grosella", "higo", "lichi", "mora", "naranja", "papaya"]; //Posible uso para un bucle u objetos.
 
-var precioTotal = 0;
 var contador = 0;
 var precioMedio = 0;
 var contenidoP;
@@ -164,8 +163,6 @@ function principal(frutaPulsada) {
                 precio[8] = precio[8] + moraObject.precio;
                 contador++; //Para la media
             }
-
-            
             break;
         case "naranja":
             naranjaObject.kilos =
@@ -193,13 +190,25 @@ function principal(frutaPulsada) {
 }
 
 /**
+ * Función que calcula el precio total.
+ */
+function precioTotalFunc(){
+    var precioTotal = 0;
+    
+    for (let index = 0; index < precio.length; index++) { 
+        precioTotal = precioTotal + precio[index];
+    }
+    return precioTotal;
+}
+
+/**
  * Función para mostrar precio Total y Precio Medio.
  */
 function resultadoFinal() {
 
-    for (let index = 0; index < precio.length; index++) {
-        precioTotal = precioTotal + precio[index];
-    }
+    let d = new Date();
+    let n = d.toLocaleString();
+    document.getElementById("p0").innerHTML = ("Fecha de compra: " + n);
 
     //Mostrar Las Frutas
     document.getElementById("p1").innerHTML = (" Pinna --- " + pinnaObject.kilos + "kg --- " + pinnaObject.precio + "€u --- " + precio[0] + "€ ");
@@ -216,9 +225,11 @@ function resultadoFinal() {
 
     document.getElementById("separador").innerHTML = (" ------------------------------ ");
 
+    precioTotal = precioTotalFunc();
+
     //Media y Precio Total
-    document.getElementById("p12").innerHTML = (" Precio Total --- " + precioTotal + " €");
+    document.getElementById("p12").innerHTML = (" Precio Total --- " + (Math.floor(precioTotal*100)/100).toFixed(2) + " €");
     PrecioMedio = (precioTotal / contador);
-    document.getElementById("p13").innerHTML = (" Precio Medio --- " + PrecioMedio.toFixed(3) + " €/kg"); //MathFloor
+    document.getElementById("p13").innerHTML = (" Precio Medio --- " +  PrecioMedio.toFixed(3) + " €/kg"); //MathFloor
 
 }

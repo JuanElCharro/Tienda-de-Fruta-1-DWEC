@@ -76,9 +76,6 @@ function principal(frutaPulsada) {
                 precio[0] = precio[0] + pinnaObject.precio;
                 contador++; //Para la media
             }
-
-            document.getElementById("p1").innerHTML = (" Pinna --- " + pinnaObject.kilos + "kg --- " + pinnaObject.precio + "€u --- " + precio[0] + "€ ");
-
             break;
         case "pomelo":
             pomeloObject.kilos =
@@ -90,9 +87,6 @@ function principal(frutaPulsada) {
                 precio[1] = precio[1] + pomeloObject.precio;
                 contador++; //Para la media
             }
-
-            document.getElementById("p2").innerHTML = (" Pomelo --- " + pomeloObject.kilos + "kg --- " + pomeloObject.precio + "€u --- " + precio[1] + "€ ");
-
             break;
         case "castanna":
             castannaObject.kilos =
@@ -104,9 +98,6 @@ function principal(frutaPulsada) {
                 precio[2] = precio[2] + castannaObject.precio;
                 contador++; //Para la media
             }
-
-            document.getElementById("p3").innerHTML = (" Castaña --- " + castannaObject.kilos + "kg --- " + castannaObject.precio + "€u --- " + precio[2] + "€ ");
-
             break;
         case "coco":
             cocoObject.kilos =
@@ -118,9 +109,6 @@ function principal(frutaPulsada) {
                 precio[3] = precio[3] + cocoObject.precio;
                 contador++; //Para la media
             }
-
-            document.getElementById("p4").innerHTML = (" Coco --- " + cocoObject.kilos + "kg --- " + cocoObject.precio + "€u --- " + precio[3] + "€ ");
-
             break;
         case "fresa":
             fresaObject.kilos =
@@ -132,9 +120,6 @@ function principal(frutaPulsada) {
                 precio[4] = precio[4] + fresaObject.precio;
                 contador++; //Para la media
             }
-
-            document.getElementById("p5").innerHTML = (" Fresa --- " + fresaObject.kilos + "kg --- " + fresaObject.precio + "€u --- " + precio[4] + "€ ");
-
             break;
         case "grosella":
             grosellaObject.kilos =
@@ -146,9 +131,6 @@ function principal(frutaPulsada) {
                 precio[5] = precio[5] + grosellaObject.precio;
                 contador++; //Para la media
             }
-
-            document.getElementById("p6").innerHTML = (" Grosella --- " + grosellaObject.kilos + "kg --- " + grosellaObject.precio + "€u --- " + precio[5] + "€ ");
-
             break;
         case "higo":
             higoObject.kilos =
@@ -160,9 +142,6 @@ function principal(frutaPulsada) {
                 precio[6] = precio[6] + higoObject.precio;
                 contador++; //Para la media
             }
-
-            document.getElementById("p7").innerHTML = (" Higo --- " + higoObject.kilos + "kg --- " + higoObject.precio + "€u --- " + precio[6] + "€ ");
-
             break;
         case "lichi":
             lichiObject.kilos =
@@ -174,8 +153,6 @@ function principal(frutaPulsada) {
                 precio[7] = precio[7] + lichiObject.precio;
                 contador++; //Para la media
             }
-
-            document.getElementById("p8").innerHTML = (" Lichi --- " + lichiObject.kilos + "kg --- " + lichiObject.precio + "€u --- " + precio[7] + "€ ");
             break;
         case "mora":
             moraObject.kilos =
@@ -188,7 +165,7 @@ function principal(frutaPulsada) {
                 contador++; //Para la media
             }
 
-            document.getElementById("p9").innerHTML = (" Mora --- " + moraObject.kilos + "kg --- " + moraObject.precio + "€u --- " + precio[8] + "€ ");
+            
             break;
         case "naranja":
             naranjaObject.kilos =
@@ -200,8 +177,6 @@ function principal(frutaPulsada) {
                 precio[9] = precio[9] + naranjaObject.precio;
                 contador++; //Para la media
             }
-
-            document.getElementById("p10").innerHTML = (" Grosella --- " + naranjaObject.kilos + "kg --- " + naranjaObject.precio + "€u --- " + precio[9] + "€ ");
             break;
         case "papaya":
             papayaObject.kilos =
@@ -213,8 +188,6 @@ function principal(frutaPulsada) {
                 precio[10] = precio[10] + papayaObject.precio;
                 contador++; //Para la media
             }
-
-            document.getElementById("p11").innerHTML = (" Papaya --- " + papayaObject.kilos + "kg --- " + papayaObject.precio + "€u --- " + precio[10] + "€ ");
             break;
     }
 }
@@ -228,7 +201,24 @@ function resultadoFinal() {
         precioTotal = precioTotal + precio[index];
     }
 
+    //Mostrar Las Frutas
+    document.getElementById("p1").innerHTML = (" Pinna --- " + pinnaObject.kilos + "kg --- " + pinnaObject.precio + "€u --- " + precio[0] + "€ ");
+    document.getElementById("p2").innerHTML = (" Pomelo --- " + pomeloObject.kilos + "kg --- " + pomeloObject.precio + "€u --- " + precio[1] + "€ ");
+    document.getElementById("p3").innerHTML = (" Castaña --- " + castannaObject.kilos + "kg --- " + castannaObject.precio + "€u --- " + precio[2] + "€ ");
+    document.getElementById("p4").innerHTML = (" Coco --- " + cocoObject.kilos + "kg --- " + cocoObject.precio + "€u --- " + precio[3] + "€ ");
+    document.getElementById("p5").innerHTML = (" Fresa --- " + fresaObject.kilos + "kg --- " + fresaObject.precio + "€u --- " + precio[4] + "€ ");
+    document.getElementById("p6").innerHTML = (" Grosella --- " + grosellaObject.kilos + "kg --- " + grosellaObject.precio + "€u --- " + precio[5] + "€ ");
+    document.getElementById("p7").innerHTML = (" Higo --- " + higoObject.kilos + "kg --- " + higoObject.precio + "€u --- " + precio[6] + "€ ");
+    document.getElementById("p8").innerHTML = (" Lichi --- " + lichiObject.kilos + "kg --- " + lichiObject.precio + "€u --- " + precio[7] + "€ ");
+    document.getElementById("p9").innerHTML = (" Mora --- " + moraObject.kilos + "kg --- " + moraObject.precio + "€u --- " + precio[8] + "€ ");
+    document.getElementById("p10").innerHTML = (" Naranja --- " + naranjaObject.kilos + "kg --- " + naranjaObject.precio + "€u --- " + precio[9] + "€ ");
+    document.getElementById("p11").innerHTML = (" Papaya --- " + papayaObject.kilos + "kg --- " + papayaObject.precio + "€u --- " + precio[10] + "€ ");
+
+    document.getElementById("separador").innerHTML = (" ------------------------------ ");
+
+    //Media y Precio Total
     document.getElementById("p12").innerHTML = (" Precio Total --- " + precioTotal + " €");
     PrecioMedio = (precioTotal / contador);
-    document.getElementById("p13").innerHTML = (" Precio Medio --- " + PrecioMedio.toFixed(2) + " €/kg");
+    document.getElementById("p13").innerHTML = (" Precio Medio --- " + PrecioMedio.toFixed(3) + " €/kg"); //MathFloor
+
 }

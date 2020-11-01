@@ -275,5 +275,5 @@ function resultadoFinal() {
     if (arrayInviernoVerano.length > 0) { //Comprobamos si se ha introducido algún elemento en el array.
         alert(arrayInviernoVerano.join('\n')); //Mostramos el resultado del array.
     }
-    
+    //Empezar V3
 }

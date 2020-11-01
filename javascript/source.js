@@ -210,6 +210,8 @@ function ventanaInviernoVerano(){
  */
 function resultadoFinal() {
 
+    var arrayInviernoVerano = [];
+
     let d = new Date();
     let n = d.toLocaleString();
     document.getElementById("p0").innerHTML = ("Fecha de compra: " + n);
@@ -227,13 +229,51 @@ function resultadoFinal() {
     document.getElementById("p4").innerHTML = (" Coco --- " + cocoObject.kilos + "kg --- " + cocoObject.precio + "€u --- " + precio[3] + "€ ");
     document.getElementById("p3").innerHTML = (" Castaña --- " + castannaObject.kilos + "kg --- " + castannaObject.precio + "€u --- " + precio[2] + "€ ");
 
+    if (pomeloObject.kilos > 0) {
+        arrayInviernoVerano.push((" El pomelo es de verano, ¿es cercano?: " + pomeloObject.proximidad + " y su zona es: " + pomeloObject.region + " "));
+    }
+    if (pinnaObject.kilos > 0) {
+        arrayInviernoVerano.push((" La piña es de verano, ¿es cercana?: " + pinnaObject.proximidad + " y su zona es: " + pinnaObject.region + " "));
+    }
+    if (papayaObject.kilos > 0) {
+        arrayInviernoVerano.push((" La papaya es de verano, ¿es cercana?: " + papayaObject.proximidad + " y su zona es: " + papayaObject.region + " "));
+    }
+    if (naranjaObject.kilos > 0) {
+        arrayInviernoVerano.push((" La naranja es de verano, ¿es cercana?: " + naranjaObject.proximidad + " y su zona es: " + naranjaObject.region + " "));
+    }
+    if (moraObject.kilos > 0) {
+        arrayInviernoVerano.push((" La mora es de invierno, ¿se debe guardar en la nevera?: " + moraObject.nevera +  " "));
+    }
+    if (lichiObject.kilos > 0) {
+        arrayInviernoVerano.push((" El lichi es de invierno, ¿se debe guardar en la nevera?: " + lichiObject.nevera +  " "));
+    }
+    if (higoObject.kilos > 0) {
+        arrayInviernoVerano.push((" El Higo es de invierno, ¿se debe guardar en la nevera?: " + higoObject.nevera +  " "));
+    }
+    if (grosellaObject.kilos > 0) {
+        arrayInviernoVerano.push((" La grosella es de invierno, ¿se debe guardar en la nevera?: " + grosellaObject.nevera +  " "));
+    }
+    if (fresaObject.kilos > 0) {
+        arrayInviernoVerano.push((" La fresa es de verano, ¿es cercana?: " + fresaObject.proximidad + " y su zona es: " + fresaObject.region + " "));
+    }
+    if (cocoObject.kilos > 0) {
+        arrayInviernoVerano.push((" El coco es de verano, ¿es cercano?: " + cocoObject.proximidad + " y su zona es: " + cocoObject.region + " "));
+    }
+    if (castannaObject.kilos > 0) {
+        arrayInviernoVerano.push((" La castaña es de invierno, ¿se debe guardar en la nevera?: " + castannaObject.nevera +  " "));
+    }
+
     document.getElementById("separador").innerHTML = (" ------------------------------ ");
 
     precioTotal = precioTotalFunc();
 
     //Media y Precio Total
-    document.getElementById("p12").innerHTML = (" Precio Total --- " + (Math.floor(precioTotal*100)/100).toFixed(2) + " €");
+    document.getElementById("p12").innerHTML = (" Precio Total --- " + (Math.floor(precioTotal*100)/100).toFixed(2) + " €"); //Redondeo hacia abajo y dos decimales
     PrecioMedio = (precioTotal / contador);
-    document.getElementById("p13").innerHTML = (" Precio Medio --- " +  PrecioMedio.toFixed(3) + " €/kg");
+    document.getElementById("p13").innerHTML = (" Precio Medio --- " +  PrecioMedio.toFixed(3) + " €/kg"); //Tres decimales
 
+    if (arrayInviernoVerano.length > 0) { //Comprobamos si se ha introducido algún elemento en el array.
+        alert(arrayInviernoVerano.join('\n')); //Mostramos el resultado del array.
+    }
+    
 }

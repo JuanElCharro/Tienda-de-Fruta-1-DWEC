@@ -2,7 +2,6 @@
 //Variables Globales & Arrays
 var precio = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var kilos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-var nombreDeFrutas = ["pinna", "pomelo", "castanna", "coco", "fresa", "grosella", "higo", "lichi", "mora", "naranja", "papaya"]; //Posible uso para un bucle u objetos.
 
 var contador = 0;
 var precioMedio = 0;
@@ -230,8 +229,7 @@ function barraL(fruta, kilos) {
  */
 function resultadoFinal() {
 
-    var arrayInviernoVerano = [];
-
+    let arrayInviernoVerano = [];
     let d = new Date();
     let n = d.toLocaleString();
     document.getElementById("p0").innerHTML = ("Fecha de compra: " + n);
@@ -285,17 +283,45 @@ function resultadoFinal() {
 
     document.getElementById("separador").innerHTML = (" ------------------------------ ");
 
+    //Media y Precio Total.
+    mediaYPrecioTotal();
+    //MostrarFrutaInviernoOVerano.
+    inviernoVerano(arrayInviernoVerano);
+    //Limpiar a los 10 segundos.
+    window.setInterval('refrescar()', 10000);
+}
+
+/**
+ * Función que recibe precioTotal() y lo muestra seguido del PrecioMedio.
+ * Cumple los requisitos de redondeo.
+ */
+function mediaYPrecioTotal(){
     precioTotal = precioTotalFunc();
 
-    //Media y Precio Total
     document.getElementById("p12").innerHTML = (" Precio Total --- " + (Math.floor(precioTotal * 100) / 100).toFixed(2) + " €"); //Redondeo hacia abajo y dos decimales
     PrecioMedio = (precioTotal / contador);
     document.getElementById("p13").innerHTML = (" Precio Medio --- " + PrecioMedio.toFixed(3) + " €/kg"); //Tres decimales
+}
 
-    if (arrayInviernoVerano.length > 0) { //Comprobamos si se ha introducido algún elemento en el array.
+/**
+ * Función que recibe el array sobre invierno o verano y muestra en una nueva ventana las descripciones.
+ * @param {*} arrayIV 
+ */
+function inviernoVerano(arrayIV){
+    if (arrayIV.length > 0) { //Comprobamos si se ha introducido algún elemento en el array.
         window.name = "Ventana";
         var ventana = window.open("", "MsgWindow", "width=500,height=500");
-        ventana.document.write("<hr> <p> " + arrayInviernoVerano.join('\n') + " </p> <hr>");
-        setTimeout(funcion, 10000); //Cierra en 10 segundos
+        ventana.document.write("<hr> <p> " + arrayIV.join('\n') + " </p> <hr>");
     }
+}
+
+/**
+ * Función JavaScript que recarga la página, y limpia variables y datos.
+ */
+function refrescar() {
+    precio = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    kilos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    contador = 0;
+    precioMedio = 0;
+    window .location.reload();
 }

@@ -2,7 +2,6 @@
 //Variables Globales & Arrays
 var precio = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var kilos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-var nombreDeFrutas = ["pinna", "pomelo", "castanna", "coco", "fresa", "grosella", "higo", "lichi", "mora", "naranja", "papaya"]; //Posible uso para un bucle u objetos.
 
 var contador = 0;
 var precioMedio = 0;
@@ -75,6 +74,7 @@ function principal(frutaPulsada) {
                 precio[0] = precio[0] + pinnaObject.precio;
                 contador++; //Para la media
             }
+            barraL(pinnaObject.nombre, pinnaObject.kilos);
             break;
         case "pomelo":
             pomeloObject.kilos =
@@ -86,6 +86,7 @@ function principal(frutaPulsada) {
                 precio[1] = precio[1] + pomeloObject.precio;
                 contador++; //Para la media
             }
+            barraL(pomeloObject.nombre, pomeloObject.kilos);
             break;
         case "castanna":
             castannaObject.kilos =
@@ -97,6 +98,7 @@ function principal(frutaPulsada) {
                 precio[2] = precio[2] + castannaObject.precio;
                 contador++; //Para la media
             }
+            barraL(castannaObject.nombre, castannaObject.kilos);
             break;
         case "coco":
             cocoObject.kilos =
@@ -108,6 +110,7 @@ function principal(frutaPulsada) {
                 precio[3] = precio[3] + cocoObject.precio;
                 contador++; //Para la media
             }
+            barraL(cocoObject.nombre, cocoObject.kilos);
             break;
         case "fresa":
             fresaObject.kilos =
@@ -119,6 +122,7 @@ function principal(frutaPulsada) {
                 precio[4] = precio[4] + fresaObject.precio;
                 contador++; //Para la media
             }
+            barraL(fresaObject.nombre, fresaObject.kilos);
             break;
         case "grosella":
             grosellaObject.kilos =
@@ -130,6 +134,7 @@ function principal(frutaPulsada) {
                 precio[5] = precio[5] + grosellaObject.precio;
                 contador++; //Para la media
             }
+            barraL(grosellaObject.nombre, grosellaObject.kilos);
             break;
         case "higo":
             higoObject.kilos =
@@ -141,6 +146,7 @@ function principal(frutaPulsada) {
                 precio[6] = precio[6] + higoObject.precio;
                 contador++; //Para la media
             }
+            barraL(higoObject.nombre, higoObject.kilos);
             break;
         case "lichi":
             lichiObject.kilos =
@@ -152,6 +158,7 @@ function principal(frutaPulsada) {
                 precio[7] = precio[7] + lichiObject.precio;
                 contador++; //Para la media
             }
+            barraL(lichiObject.nombre, lichiObject.kilos);
             break;
         case "mora":
             moraObject.kilos =
@@ -163,6 +170,7 @@ function principal(frutaPulsada) {
                 precio[8] = precio[8] + moraObject.precio;
                 contador++; //Para la media
             }
+            barraL(moraObject.nombre, moraObject.kilos);
             break;
         case "naranja":
             naranjaObject.kilos =
@@ -174,6 +182,7 @@ function principal(frutaPulsada) {
                 precio[9] = precio[9] + naranjaObject.precio;
                 contador++; //Para la media
             }
+            barraL(naranjaObject.nombre, naranjaObject.kilos);
             break;
         case "papaya":
             papayaObject.kilos =
@@ -185,6 +194,7 @@ function principal(frutaPulsada) {
                 precio[10] = precio[10] + papayaObject.precio;
                 contador++; //Para la media
             }
+            barraL(papayaObject.nombre, papayaObject.kilos);
             break;
     }
 }
@@ -192,17 +202,26 @@ function principal(frutaPulsada) {
 /**
  * Función que calcula el precio total.
  */
-function precioTotalFunc(){
+function precioTotalFunc() {
     var precioTotal = 0;
 
-    for (let index = 0; index < precio.length; index++) { 
+    for (let index = 0; index < precio.length; index++) {
         precioTotal = precioTotal + precio[index];
     }
     return precioTotal;
 }
 
-function ventanaInviernoVerano(){
-
+/**
+ * Función de barra lateral. si es mayor de 1 kilo se muestra en la derecha.
+ * @param {*} fruta 
+ * @param {*} kilos 
+ */
+function barraL(fruta, kilos) {
+    if (kilos >= 1) {
+        var elemento = document.createElement("p");
+        elemento.appendChild(document.createTextNode(" [FRUTA:] " + fruta + " [KILOS:] " + kilos + ""));
+        document.getElementById("barraLateral").appendChild(elemento);
+    }
 }
 
 /**
@@ -210,8 +229,7 @@ function ventanaInviernoVerano(){
  */
 function resultadoFinal() {
 
-    var arrayInviernoVerano = [];
-
+    let arrayInviernoVerano = [];
     let d = new Date();
     let n = d.toLocaleString();
     document.getElementById("p0").innerHTML = ("Fecha de compra: " + n);
@@ -230,50 +248,80 @@ function resultadoFinal() {
     document.getElementById("p3").innerHTML = (" Castaña --- " + castannaObject.kilos + "kg --- " + castannaObject.precio + "€u --- " + precio[2] + "€ ");
 
     if (pomeloObject.kilos > 0) {
-        arrayInviernoVerano.push((" El pomelo es de verano, ¿es cercano?: " + pomeloObject.proximidad + " y su zona es: " + pomeloObject.region + " "));
+        arrayInviernoVerano.push(("[ El pomelo es de verano, ¿es cercano?: " + pomeloObject.proximidad + " y su zona es: " + pomeloObject.region + "] "));
     }
     if (pinnaObject.kilos > 0) {
-        arrayInviernoVerano.push((" La piña es de verano, ¿es cercana?: " + pinnaObject.proximidad + " y su zona es: " + pinnaObject.region + " "));
+        arrayInviernoVerano.push(("[ La piña es de verano, ¿es cercana?: " + pinnaObject.proximidad + " y su zona es: " + pinnaObject.region + "] "));
     }
     if (papayaObject.kilos > 0) {
-        arrayInviernoVerano.push((" La papaya es de verano, ¿es cercana?: " + papayaObject.proximidad + " y su zona es: " + papayaObject.region + " "));
+        arrayInviernoVerano.push(("[ La papaya es de verano, ¿es cercana?: " + papayaObject.proximidad + " y su zona es: " + papayaObject.region + "] "));
     }
     if (naranjaObject.kilos > 0) {
-        arrayInviernoVerano.push((" La naranja es de verano, ¿es cercana?: " + naranjaObject.proximidad + " y su zona es: " + naranjaObject.region + " "));
+        arrayInviernoVerano.push(("[ La naranja es de verano, ¿es cercana?: " + naranjaObject.proximidad + " y su zona es: " + naranjaObject.region + "] "));
     }
     if (moraObject.kilos > 0) {
-        arrayInviernoVerano.push((" La mora es de invierno, ¿se debe guardar en la nevera?: " + moraObject.nevera +  " "));
+        arrayInviernoVerano.push(("[ La mora es de invierno, ¿se debe guardar en la nevera?: " + moraObject.nevera + "] "));
     }
     if (lichiObject.kilos > 0) {
-        arrayInviernoVerano.push((" El lichi es de invierno, ¿se debe guardar en la nevera?: " + lichiObject.nevera +  " "));
+        arrayInviernoVerano.push(("[ El lichi es de invierno, ¿se debe guardar en la nevera?: " + lichiObject.nevera + "] "));
     }
     if (higoObject.kilos > 0) {
-        arrayInviernoVerano.push((" El Higo es de invierno, ¿se debe guardar en la nevera?: " + higoObject.nevera +  " "));
+        arrayInviernoVerano.push(("[ El Higo es de invierno, ¿se debe guardar en la nevera?: " + higoObject.nevera + "] "));
     }
     if (grosellaObject.kilos > 0) {
-        arrayInviernoVerano.push((" La grosella es de invierno, ¿se debe guardar en la nevera?: " + grosellaObject.nevera +  " "));
+        arrayInviernoVerano.push(("[ La grosella es de invierno, ¿se debe guardar en la nevera?: " + grosellaObject.nevera + "] "));
     }
     if (fresaObject.kilos > 0) {
-        arrayInviernoVerano.push((" La fresa es de verano, ¿es cercana?: " + fresaObject.proximidad + " y su zona es: " + fresaObject.region + " "));
+        arrayInviernoVerano.push(("[ La fresa es de verano, ¿es cercana?: " + fresaObject.proximidad + " y su zona es: " + fresaObject.region + "] "));
     }
     if (cocoObject.kilos > 0) {
-        arrayInviernoVerano.push((" El coco es de verano, ¿es cercano?: " + cocoObject.proximidad + " y su zona es: " + cocoObject.region + " "));
+        arrayInviernoVerano.push(("[ El coco es de verano, ¿es cercano?: " + cocoObject.proximidad + " y su zona es: " + cocoObject.region + "] "));
     }
     if (castannaObject.kilos > 0) {
-        arrayInviernoVerano.push((" La castaña es de invierno, ¿se debe guardar en la nevera?: " + castannaObject.nevera +  " "));
+        arrayInviernoVerano.push(("[ La castaña es de invierno, ¿se debe guardar en la nevera?: " + castannaObject.nevera + "] "));
     }
 
     document.getElementById("separador").innerHTML = (" ------------------------------ ");
 
+    //Media y Precio Total.
+    mediaYPrecioTotal();
+    //MostrarFrutaInviernoOVerano.
+    inviernoVerano(arrayInviernoVerano);
+    //Limpiar a los 10 segundos.
+    window.setInterval('refrescar()', 10000);
+}
+
+/**
+ * Función que recibe precioTotal() y lo muestra seguido del PrecioMedio.
+ * Cumple los requisitos de redondeo.
+ */
+function mediaYPrecioTotal(){
     precioTotal = precioTotalFunc();
 
-    //Media y Precio Total
-    document.getElementById("p12").innerHTML = (" Precio Total --- " + (Math.floor(precioTotal*100)/100).toFixed(2) + " €"); //Redondeo hacia abajo y dos decimales
+    document.getElementById("p12").innerHTML = (" Precio Total --- " + (Math.floor(precioTotal * 100) / 100).toFixed(2) + " €"); //Redondeo hacia abajo y dos decimales
     PrecioMedio = (precioTotal / contador);
-    document.getElementById("p13").innerHTML = (" Precio Medio --- " +  PrecioMedio.toFixed(3) + " €/kg"); //Tres decimales
+    document.getElementById("p13").innerHTML = (" Precio Medio --- " + PrecioMedio.toFixed(3) + " €/kg"); //Tres decimales
+}
 
-    if (arrayInviernoVerano.length > 0) { //Comprobamos si se ha introducido algún elemento en el array.
-        alert(arrayInviernoVerano.join('\n')); //Mostramos el resultado del array.
+/**
+ * Función que recibe el array sobre invierno o verano y muestra en una nueva ventana las descripciones.
+ * @param {*} arrayIV 
+ */
+function inviernoVerano(arrayIV){
+    if (arrayIV.length > 0) { //Comprobamos si se ha introducido algún elemento en el array.
+        window.name = "Ventana";
+        var ventana = window.open("", "MsgWindow", "width=500,height=500");
+        ventana.document.write("<hr> <p> " + arrayIV.join('\n') + " </p> <hr>");
     }
-    
+}
+
+/**
+ * Función JavaScript que recarga la página, y limpia variables y datos.
+ */
+function refrescar() {
+    precio = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    kilos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    contador = 0;
+    precioMedio = 0;
+    window .location.reload();
 }

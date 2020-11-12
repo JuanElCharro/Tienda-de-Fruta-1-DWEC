@@ -14,7 +14,7 @@
 
 .fruta {
     display: inline-block;
-    background-color: rgb(235, 187, 187);
+    background-color: rgb(255, 160, 160);
     overflow: hidden;
     
     font-family: sans-serif, 'Open Sans';
@@ -27,8 +27,23 @@ img{
     width: 270px;
 }
 
+.mostrar{
+    background-color: rgb(255, 160, 160);
+}
+
 button{
-    padding: 1%;
+    padding: 0.5%;
+    width: 49%;
+    font-style: italic;
+    font-size: 15px;
+}
+
+.resultadoButton{
+    float: left;
+}
+
+.limpiarButton{
+    float: right;
 }
 
 p{

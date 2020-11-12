@@ -1,20 +1,30 @@
 .center {
-    float: left;
     width: 72%;
-    text-align: center;
-    font-size: 55px;
+    font-size: 50px;
     background-color: rgb(212, 212, 212);
+    display: inline-block;
 }
 
 .titulo{
     font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-size: 50px;
     background-color: crimson;
+    text-align: center;
 }
 
 .fruta {
-    text-align: center;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 20px;
+    display: inline-block;
+    background-color: rgb(235, 187, 187);
+    overflow: hidden;
+    
+    font-family: sans-serif, 'Open Sans';
+    font-size: 17px;
+    width: 200px;
+    height: 200px;
+}
+
+img{
+    width: 270px;
 }
 
 button{

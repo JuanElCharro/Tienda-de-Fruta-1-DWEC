@@ -34,8 +34,8 @@ img{
 button{
     padding: 0.5%;
     width: 49%;
-    font-style: italic;
-    font-size: 15px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20px;
 }
 
 .resultadoButton{
@@ -48,7 +48,7 @@ button{
 
 p{
     text-align: center;
-    font-size: 15px;
+    font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
 }
 

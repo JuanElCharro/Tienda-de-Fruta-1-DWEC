@@ -288,7 +288,7 @@ function resultadoFinal() {
     //MostrarFrutaInviernoOVerano.
     inviernoVerano(arrayInviernoVerano);
     //Limpiar a los 10 segundos.
-    window.setInterval('refrescar()', 10000);
+    //window.setInterval('refrescar()', 10000);
 }
 
 /**
@@ -318,7 +318,7 @@ function inviernoVerano(arrayIV){
 /**
  * Función JavaScript que recarga la página, y limpia variables y datos.
  */
-function refrescar() {
+function limpiarFormulario() {
     precio = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     kilos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     contador = 0;

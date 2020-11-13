@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="../css/styles.css">
     <script src="../javascript/source.js"></script>
 </head>
+
 <body>
     <div class="center">
         <div class="titulo">Frutas Juancho</div><br>
@@ -66,19 +68,57 @@
             <img id="papaya" src="../pictures/papayas.jpg" alt="papaya" onclick="principal('papaya')"><br>
             Papaya (8.12€ kilo)
         </div>
-
-        <p id="p0"></p><p id="p1"></p><p id="p2"></p><p id="p3"></p><p id="p4"></p>
-        <p id="p5"></p><p id="p6"></p><p id="p7"></p><p id="p8"></p>
-        <p id="p9"></p><p id="p10"></p><p id="p11"></p> <p id="separador"></p>
-        <p id="p12"></p> <p id="p13"></p> 
-
-    </div>
-
-    <div class="mostrar">
-        <button id="resultadoButton" onclick="resultadoFinal()">Finalizar Pedido</button>
-        <button id="limpiarButton" onclick="resultadoFinal()">Limpiar</button>
     </div>
 
     <div id="barraLateral"></div>
+
+    <div class="mostrar">
+        <fieldset>
+            <form action="/action_page.php">
+                <label for="fname">Nombre:</label>
+                <input type="text" id="fname" name="fname"><br>
+                <label for="lname">Apellidos:</label>
+                <input type="text" id="lname" name="lname"><br><br>
+                <label for="dir">Dirección:</label>
+                <input type="text" id="dir" name="dir"><br>
+                <label for="mail">Email:</label>
+                <input type="email" id="mail" name="mail"><br><br>
+
+                <input type="radio" id="tarjeta" name="tarjeta" value="si">
+                <label for="si">Pago con Tarjeta</label><br>
+                <input type="radio" id="entrega" name="tarjeta" value="no">
+                <label for="no">Pago a la entrega</label><br><br>
+
+                <input type="radio" id="cliente" name="cliente" value="si">
+                <label for="si">SÍ tiene tarjeta de cliente</label><br>
+                <input type="radio" id="nocliente" name="cliente" value="no">
+                <label for="no">NO tiene tarjeta de cliente</label><br>
+            </form>
+        </fieldset>
+
+        <button id="resultadoButton" onclick="resultadoFinal()">Realizar Pedido</button>
+        <button id="limpiarButton" onclick="limpiarFormulario()">Limpiar Formulario</button>
+
+
+
+        <p id="p0"></p>
+        <p id="p1"></p>
+        <p id="p2"></p>
+        <p id="p3"></p>
+        <p id="p4"></p>
+        <p id="p5"></p>
+        <p id="p6"></p>
+        <p id="p7"></p>
+        <p id="p8"></p>
+        <p id="p9"></p>
+        <p id="p10"></p>
+        <p id="p11"></p>
+        <p id="separador"></p>
+        <p id="p12"></p>
+        <p id="p13"></p>
+    </div>
+
+
 </body>
+
 </html>

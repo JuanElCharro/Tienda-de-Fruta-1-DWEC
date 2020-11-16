@@ -86,24 +86,38 @@
     <div class="mostrar">
         <fieldset>
             <form action="/action_page.php">
-                <label for="fname">Nombre:</label>
-                <input type="text" id="fname" name="fname"><br>
-                <label for="lname">Apellidos:</label>
-                <input type="text" id="lname" name="lname"><br><br>
-                <label for="dir">Dirección:</label>
-                <input type="text" id="dir" name="dir"><br>
-                <label for="mail">Email:</label>
-                <input type="email" id="mail" name="mail"><br><br>
+                <fieldset id="fieldset1">
+                    <legend>Nombre y Apellidos</legend>
+                    <label for="fname">Nombre:</label>
+                    <input type="text" id="fname" name="fname"><br>
+                    <label for="lname">Apellidos:</label>
+                    <input type="text" id="lname" name="lname"><br>
+                </fieldset>
 
-                <input type="radio" id="tarjeta" name="tarjeta" value="si">
-                <label for="si">Pago con Tarjeta</label><br>
-                <input type="radio" id="entrega" name="tarjeta" value="no">
-                <label for="no">Pago a la entrega</label><br><br>
+                <fieldset id="fieldset2">
+                    <legend>Dirección y Email</legend>
+                    <label for="dir">Dirección:</label>
+                    <input type="text" id="dir" name="dir"><br>
+                    <label for="mail">Email:</label>
+                    <input type="email" id="mail" name="mail"><br>
+                </fieldset>
 
-                <input type="radio" id="cliente" name="cliente" value="si">
-                <label for="si">SÍ tiene tarjeta de cliente</label><br>
-                <input type="radio" id="nocliente" name="cliente" value="no">
-                <label for="no">NO tiene tarjeta de cliente</label><br>
+                <fieldset id="fieldset3">
+                    <legend>Tipo de Pago</legend>
+                    <input type="radio" id="tarjeta" name="tarjeta" value="si">
+                    <label for="si">Pago con Tarjeta</label><br>
+                    <input type="radio" id="entrega" name="tarjeta" value="no">
+                    <label for="no">Pago a la entrega</label><br>
+                </fieldset>
+
+                <fieldset id="fieldset4">
+                    <legend>Tarjeta de Cliente</legend>
+                    <input type="radio" id="cliente" name="cliente" value="si">
+                    <label for="si">SÍ tiene tarjeta de cliente</label><br>
+                    <input type="radio" id="nocliente" name="cliente" value="no">
+                    <label for="no">NO tiene tarjeta de cliente</label><br>
+                </fieldset>
+
             </form>
         </fieldset>
 

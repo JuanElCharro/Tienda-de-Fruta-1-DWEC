@@ -69,3 +69,13 @@ fieldset{
     font-family: 'Open Sans';
     font-size: medium;
 }
+
+#fieldset1{
+   width: 50px;
+   float: left;
+}
+
+#fieldset2{
+    width: 50px;
+    float: left;
+}

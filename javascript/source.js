@@ -256,7 +256,7 @@ function barraL(fruta, kilos) {
     if (kilos >= 1) {
         var elemento = document.createElement("p");
         //Añado css al elemento
-        elemento.style.backgroundColor = "greenyellow";
+        elemento.style.backgroundColor = "lightblue";
 
         elemento.appendChild(document.createTextNode(" FRUTA: " + fruta + " KILOS: " + cantidad + ""));
         document.getElementById("barraLateral").appendChild(elemento);
@@ -332,7 +332,7 @@ function resultadoFinal() {
     //window.setInterval('refrescar()', 10000);
 }
 
-function ventanaTerminarPedido(){
+function ventanaTerminarPedido() {
     window.name = "Ventana";
     var ventana = window.open("", "MsgWindow", "width=500,height=300");
     ventana.document.write("<button style='font-size: 25px;' id='resultadoButton;' onclick='resultadoFinal()'>Realizar Pedido</button>");
@@ -343,7 +343,7 @@ function ventanaTerminarPedido(){
  * Función que recibe precioTotal() y lo muestra seguido del PrecioMedio.
  * Cumple los requisitos de redondeo.
  */
-function mediaYPrecioTotal(){
+function mediaYPrecioTotal() {
     precioTotal = precioTotalFunc();
 
     document.getElementById("p12").innerHTML = (" Precio Total --- " + (Math.floor(precioTotal * 100) / 100).toFixed(2) + " €"); //Redondeo hacia abajo y dos decimales
@@ -355,7 +355,7 @@ function mediaYPrecioTotal(){
  * Función que recibe el array sobre invierno o verano y muestra en una nueva ventana las descripciones.
  * @param {*} arrayIV 
  */
-function inviernoVerano(arrayIV){
+function inviernoVerano(arrayIV) {
     if (arrayIV.length > 0) { //Comprobamos si se ha introducido algún elemento en el array.
         window.name = "Ventana";
         var ventana2 = window.open("", "MsgWindow", "width=500,height=500");
@@ -367,9 +367,37 @@ function inviernoVerano(arrayIV){
  * Función JavaScript que recarga la página, y limpia variables y datos.
  */
 function limpiarFormulario() {
+    //Limpia todos los input de las frutas
+    document.getElementById("pinnaA").value = '';
+    document.getElementById("pomeloA").value = '';
+    document.getElementById("castannaA").value = '';
+    document.getElementById("cocoA").value = '';
+    document.getElementById("fresaA").value = '';
+    document.getElementById("grosellaA").value = '';
+    document.getElementById("higoA").value = '';
+    document.getElementById("lichiA").value = '';
+    document.getElementById("moraA").value = '';
+    document.getElementById("naranjaA").value = '';
+    document.getElementById("papayaA").value = '';
+
+    //Limpia los textos del formulario
+    document.getElementById("nombre").value = '';
+    document.getElementById("apellidos").value = '';
+    document.getElementById("direccion").value = '';
+    document.getElementById("email").value = '';
+
+    //Limpia los radio buttons
+    document.getElementById("tarjeta").checked = false;
+    document.getElementById("entrega").checked = false;
+    document.getElementById("sicliente").checked = false;
+    document.getElementById("nocliente").checked = false;
+
+    //Limpia la barra lateral derecha
+    window .location.reload();
+
+    //Limpia las variables
     precio = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     kilos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     contador = 0;
     precioMedio = 0;
-    window .location.reload();
 }

@@ -3,6 +3,7 @@
 var precio = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var kilos = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
+var cantidad = 0;
 var contador = 0;
 var precioMedio = 0;
 var contenidoP;
@@ -60,11 +61,15 @@ var papayaObject = new FrutaVerano("Papaya", 0, 8.12, false, "Ecuador");
  * Función Principal
  */
 function principal(frutaPulsada) {
-    let pedidoAlUsuario = prompt("INTRODUZCA LOS KILOS: ");
-    let cantidad = Number(pedidoAlUsuario);
+    //let pedidoAlUsuario = prompt("INTRODUZCA LOS KILOS: ");
+    //let cantidad = Number(pedidoAlUsuario);
+    let recogerValorInput = 0;
 
     switch (frutaPulsada) {
         case "pinna":
+            recogerValorInput = document.getElementById("pinnaA").value;
+            cantidad = Number(recogerValorInput);
+
             pinnaObject.kilos =
                 pinnaObject.kilos + cantidad;
 
@@ -77,6 +82,9 @@ function principal(frutaPulsada) {
             barraL(pinnaObject.nombre, pinnaObject.kilos);
             break;
         case "pomelo":
+            recogerValorInput = document.getElementById("pomeloA").value;
+            cantidad = Number(recogerValorInput);
+
             pomeloObject.kilos =
                 pomeloObject.kilos + cantidad;
 
@@ -89,6 +97,9 @@ function principal(frutaPulsada) {
             barraL(pomeloObject.nombre, pomeloObject.kilos);
             break;
         case "castanna":
+            recogerValorInput = document.getElementById("castannaA").value;
+            cantidad = Number(recogerValorInput);
+
             castannaObject.kilos =
                 castannaObject.kilos + cantidad;
 
@@ -101,6 +112,9 @@ function principal(frutaPulsada) {
             barraL(castannaObject.nombre, castannaObject.kilos);
             break;
         case "coco":
+            recogerValorInput = document.getElementById("cocoA").value;
+            cantidad = Number(recogerValorInput);
+
             cocoObject.kilos =
                 cocoObject.kilos + cantidad;
 
@@ -113,6 +127,9 @@ function principal(frutaPulsada) {
             barraL(cocoObject.nombre, cocoObject.kilos);
             break;
         case "fresa":
+            recogerValorInput = document.getElementById("fresaA").value;
+            cantidad = Number(recogerValorInput);
+
             fresaObject.kilos =
                 fresaObject.kilos + cantidad;
 
@@ -125,6 +142,9 @@ function principal(frutaPulsada) {
             barraL(fresaObject.nombre, fresaObject.kilos);
             break;
         case "grosella":
+            recogerValorInput = document.getElementById("grosellaA").value;
+            cantidad = Number(recogerValorInput);
+
             grosellaObject.kilos =
                 grosellaObject.kilos + cantidad;
 
@@ -137,6 +157,9 @@ function principal(frutaPulsada) {
             barraL(grosellaObject.nombre, grosellaObject.kilos);
             break;
         case "higo":
+            recogerValorInput = document.getElementById("higoA").value;
+            cantidad = Number(recogerValorInput);
+
             higoObject.kilos =
                 higoObject.kilos + cantidad;
 
@@ -149,6 +172,9 @@ function principal(frutaPulsada) {
             barraL(higoObject.nombre, higoObject.kilos);
             break;
         case "lichi":
+            recogerValorInput = document.getElementById("lichiA").value;
+            cantidad = Number(recogerValorInput);
+
             lichiObject.kilos =
                 lichiObject.kilos + cantidad;
 
@@ -161,6 +187,9 @@ function principal(frutaPulsada) {
             barraL(lichiObject.nombre, lichiObject.kilos);
             break;
         case "mora":
+            recogerValorInput = document.getElementById("moraA").value;
+            cantidad = Number(recogerValorInput);
+
             moraObject.kilos =
                 moraObject.kilos + cantidad;
 
@@ -173,6 +202,9 @@ function principal(frutaPulsada) {
             barraL(moraObject.nombre, moraObject.kilos);
             break;
         case "naranja":
+            recogerValorInput = document.getElementById("naranjaA").value;
+            cantidad = Number(recogerValorInput);
+
             naranjaObject.kilos =
                 naranjaObject.kilos + cantidad;
 
@@ -185,6 +217,9 @@ function principal(frutaPulsada) {
             barraL(naranjaObject.nombre, naranjaObject.kilos);
             break;
         case "papaya":
+            recogerValorInput = document.getElementById("papayaA").value;
+            cantidad = Number(recogerValorInput);
+
             papayaObject.kilos =
                 papayaObject.kilos + cantidad;
 
@@ -212,14 +247,18 @@ function precioTotalFunc() {
 }
 
 /**
- * Función de barra lateral. si es mayor de 1 kilo se muestra en la derecha.
+ * Muestra el nombre de la fruta y la cantidad de kilos que se han introducido en el input text 
+ * de la fruta correspondiente. Solo lo muestra en la barra lateral si hay más de un kilo.
  * @param {*} fruta 
  * @param {*} kilos 
  */
 function barraL(fruta, kilos) {
     if (kilos >= 1) {
         var elemento = document.createElement("p");
-        elemento.appendChild(document.createTextNode(" [FRUTA:] " + fruta + " [KILOS:] " + kilos + ""));
+        //Añado css al elemento
+        elemento.style.backgroundColor = "greenyellow";
+
+        elemento.appendChild(document.createTextNode(" FRUTA: " + fruta + " KILOS: " + cantidad + ""));
         document.getElementById("barraLateral").appendChild(elemento);
     }
 }

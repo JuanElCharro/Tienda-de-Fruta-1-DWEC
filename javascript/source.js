@@ -229,6 +229,8 @@ function barraL(fruta, kilos) {
  */
 function resultadoFinal() {
 
+    ventanaTerminarPedido();
+
     let arrayInviernoVerano = [];
     let d = new Date();
     let n = d.toLocaleString();
@@ -291,6 +293,13 @@ function resultadoFinal() {
     //window.setInterval('refrescar()', 10000);
 }
 
+function ventanaTerminarPedido(){
+    window.name = "Ventana";
+    var ventana = window.open("", "MsgWindow", "width=500,height=300");
+    ventana.document.write("<button style='font-size: 25px;' id='resultadoButton;' onclick='resultadoFinal()'>Realizar Pedido</button>");
+    ventana.document.write("<button style='font-size: 25px;' id='limpiarButton' onclick='limpiarFormulario()'>Limpiar Formulario</button>");
+}
+
 /**
  * Función que recibe precioTotal() y lo muestra seguido del PrecioMedio.
  * Cumple los requisitos de redondeo.
@@ -310,8 +319,8 @@ function mediaYPrecioTotal(){
 function inviernoVerano(arrayIV){
     if (arrayIV.length > 0) { //Comprobamos si se ha introducido algún elemento en el array.
         window.name = "Ventana";
-        var ventana = window.open("", "MsgWindow", "width=500,height=500");
-        ventana.document.write("<hr> <p> " + arrayIV.join('\n') + " </p> <hr>");
+        var ventana2 = window.open("", "MsgWindow", "width=500,height=500");
+        ventana2.document.write("<hr> <p> " + arrayIV.join('\n') + " </p> <hr>");
     }
 }
 

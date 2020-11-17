@@ -60,14 +60,14 @@ var papayaObject = new FrutaVerano("Papaya", 0, 8.12, false, "Ecuador");
 var arrayDeObjetos = [pinnaObject, pomeloObject, castannaObject, cocoObject, fresaObject, grosellaObject, higoObject, lichiObject, moraObject, naranjaObject, papayaObject];
 
 window.onload = () => {
+    //Array para el tooltip
     for (let index = 0; index < arrayDeObjetos.length; index++) {
         document.getElementsByTagName("img")[index].addEventListener("mouseover", () => {
-            document.getElementsByClassName("tooltiptext")[index].innerHTML = (" La "+ arrayDeObjetos[index].nombre +" es de verano, ¿es cercana?: " + arrayDeObjetos[index].proximidad + " y su zona es: " + arrayDeObjetos[index].region + " ") 
+            document.getElementsByClassName("tooltiptext")[index].innerHTML = (" La " + arrayDeObjetos[index].nombre + " ¿es cercana?: " + arrayDeObjetos[index].proximidad + " y es de: " + arrayDeObjetos[index].region + " ¿nevera? " + arrayDeObjetos[index].nevera + "");
         }, false);
     }
-}
 
-//document.getElementById("parrafo1").innerHTML("[ La piña es de verano, ¿es cercana?: " + pinnaObject.proximidad + " y su zona es: " + pinnaObject.region + "] ");
+}
 
 /**
  * Función Principal
@@ -285,8 +285,66 @@ function barraL(fruta, kilos) {
                 console.log("no");
             }
         }
-        
+
     }
+}
+
+/**
+ * Función que validará el formulario del usuario.
+ */
+function validar() {
+    //Creo un array dinámico, en el cual introduciré los errores y verificaré al final si cumplen la condición todos para ejecutar la ventana emergente.
+    let errores = [];
+
+    //Type text
+    let nombre = document.getElementById("nombre");
+    let apellidos = document.getElementById("apellidos");
+    let direccion = document.getElementById("direccion");
+    let email = document.getElementById("email");
+
+    //Radio Buttons
+    let tarjeta = document.getElementsByName("tarjeta");
+    let cliente = document.getElementsByName("cliente");
+
+    if (!nombre.checkValidity()) {
+        nombre.style.backgroundColor = "red";
+        errores.push(false);
+    } else {
+        nombre.style.backgroundColor = "white";
+        errores.push(true);
+    }
+
+    if (!apellidos.checkValidity()) {
+        apellidos.style.backgroundColor = "red";
+        errores.push(false);
+    } else {
+        apellidos.style.backgroundColor = "white";
+        errores.push(true);
+    }
+
+    if (!direccion.checkValidity()) {
+        direccion.style.backgroundColor = "red";
+        errores.push(false);
+    } else {
+        direccion.style.backgroundColor = "white";
+        errores.push(true);
+    }
+
+    if (!email.checkValidity()) {
+        email.style.backgroundColor = "red";
+        errores.push(false);
+    } else {
+        email.style.backgroundColor = "white";
+        errores.push(true);
+    }
+
+    //Recorremos el bucle dinámico, si algún valor es falso devolverá true y ejecutará la ventana emergente, sino devolverá false.
+    for (let index = 0; index < errores.length; index++) { 
+        if (errores[index] == false) {
+            return true;
+        }
+    }
+    return false;
 }
 
 /**
@@ -294,100 +352,69 @@ function barraL(fruta, kilos) {
  */
 function resultadoFinal() {
 
-    ventanaTerminarPedido();
+    if (validar() == false) {
+        ventanaTerminarPedido();
 
-    let arrayInviernoVerano = [];
-    let d = new Date();
-    let n = d.toLocaleString();
-    document.getElementById("p0").innerHTML = ("Fecha de compra: " + n);
+        let arrayInviernoVerano = [];
+        let d = new Date();
+        let n = d.toLocaleString();
+        document.getElementById("p0").innerHTML = ("Fecha de compra: " + n);
 
-    //Mostrar Las Frutas - Ordenado Inverso
-    document.getElementById("p2").innerHTML = (" Pomelo --- " + pomeloObject.kilos + "kg --- " + pomeloObject.precio + "€u --- " + precio[1] + "€ ");
-    document.getElementById("p1").innerHTML = (" Pinna --- " + pinnaObject.kilos + "kg --- " + pinnaObject.precio + "€u --- " + precio[0] + "€ ");
-    document.getElementById("p11").innerHTML = (" Papaya --- " + papayaObject.kilos + "kg --- " + papayaObject.precio + "€u --- " + precio[10] + "€ ");
-    document.getElementById("p10").innerHTML = (" Naranja --- " + naranjaObject.kilos + "kg --- " + naranjaObject.precio + "€u --- " + precio[9] + "€ ");
-    document.getElementById("p9").innerHTML = (" Mora --- " + moraObject.kilos + "kg --- " + moraObject.precio + "€u --- " + precio[8] + "€ ");
-    document.getElementById("p8").innerHTML = (" Lichi --- " + lichiObject.kilos + "kg --- " + lichiObject.precio + "€u --- " + precio[7] + "€ ");
-    document.getElementById("p7").innerHTML = (" Higo --- " + higoObject.kilos + "kg --- " + higoObject.precio + "€u --- " + precio[6] + "€ ");
-    document.getElementById("p6").innerHTML = (" Grosella --- " + grosellaObject.kilos + "kg --- " + grosellaObject.precio + "€u --- " + precio[5] + "€ ");
-    document.getElementById("p5").innerHTML = (" Fresa --- " + fresaObject.kilos + "kg --- " + fresaObject.precio + "€u --- " + precio[4] + "€ ");
-    document.getElementById("p4").innerHTML = (" Coco --- " + cocoObject.kilos + "kg --- " + cocoObject.precio + "€u --- " + precio[3] + "€ ");
-    document.getElementById("p3").innerHTML = (" Castaña --- " + castannaObject.kilos + "kg --- " + castannaObject.precio + "€u --- " + precio[2] + "€ ");
+        //Mostrar Las Frutas - Ordenado Inverso
+        document.getElementById("p2").innerHTML = (" Pomelo --- " + pomeloObject.kilos + "kg --- " + pomeloObject.precio + "€u --- " + precio[1] + "€ ");
+        document.getElementById("p1").innerHTML = (" Pinna --- " + pinnaObject.kilos + "kg --- " + pinnaObject.precio + "€u --- " + precio[0] + "€ ");
+        document.getElementById("p11").innerHTML = (" Papaya --- " + papayaObject.kilos + "kg --- " + papayaObject.precio + "€u --- " + precio[10] + "€ ");
+        document.getElementById("p10").innerHTML = (" Naranja --- " + naranjaObject.kilos + "kg --- " + naranjaObject.precio + "€u --- " + precio[9] + "€ ");
+        document.getElementById("p9").innerHTML = (" Mora --- " + moraObject.kilos + "kg --- " + moraObject.precio + "€u --- " + precio[8] + "€ ");
+        document.getElementById("p8").innerHTML = (" Lichi --- " + lichiObject.kilos + "kg --- " + lichiObject.precio + "€u --- " + precio[7] + "€ ");
+        document.getElementById("p7").innerHTML = (" Higo --- " + higoObject.kilos + "kg --- " + higoObject.precio + "€u --- " + precio[6] + "€ ");
+        document.getElementById("p6").innerHTML = (" Grosella --- " + grosellaObject.kilos + "kg --- " + grosellaObject.precio + "€u --- " + precio[5] + "€ ");
+        document.getElementById("p5").innerHTML = (" Fresa --- " + fresaObject.kilos + "kg --- " + fresaObject.precio + "€u --- " + precio[4] + "€ ");
+        document.getElementById("p4").innerHTML = (" Coco --- " + cocoObject.kilos + "kg --- " + cocoObject.precio + "€u --- " + precio[3] + "€ ");
+        document.getElementById("p3").innerHTML = (" Castaña --- " + castannaObject.kilos + "kg --- " + castannaObject.precio + "€u --- " + precio[2] + "€ ");
 
-    if (pomeloObject.kilos > 0) {
-        arrayInviernoVerano.push(("[ El pomelo es de verano, ¿es cercano?: " + pomeloObject.proximidad + " y su zona es: " + pomeloObject.region + "] "));
-    }
-    if (pinnaObject.kilos > 0) {
-        arrayInviernoVerano.push(("[ La piña es de verano, ¿es cercana?: " + pinnaObject.proximidad + " y su zona es: " + pinnaObject.region + "] "));
-    }
-    if (papayaObject.kilos > 0) {
-        arrayInviernoVerano.push(("[ La papaya es de verano, ¿es cercana?: " + papayaObject.proximidad + " y su zona es: " + papayaObject.region + "] "));
-    }
-    if (naranjaObject.kilos > 0) {
-        arrayInviernoVerano.push(("[ La naranja es de verano, ¿es cercana?: " + naranjaObject.proximidad + " y su zona es: " + naranjaObject.region + "] "));
-    }
-    if (moraObject.kilos > 0) {
-        arrayInviernoVerano.push(("[ La mora es de invierno, ¿se debe guardar en la nevera?: " + moraObject.nevera + "] "));
-    }
-    if (lichiObject.kilos > 0) {
-        arrayInviernoVerano.push(("[ El lichi es de invierno, ¿se debe guardar en la nevera?: " + lichiObject.nevera + "] "));
-    }
-    if (higoObject.kilos > 0) {
-        arrayInviernoVerano.push(("[ El Higo es de invierno, ¿se debe guardar en la nevera?: " + higoObject.nevera + "] "));
-    }
-    if (grosellaObject.kilos > 0) {
-        arrayInviernoVerano.push(("[ La grosella es de invierno, ¿se debe guardar en la nevera?: " + grosellaObject.nevera + "] "));
-    }
-    if (fresaObject.kilos > 0) {
-        arrayInviernoVerano.push(("[ La fresa es de verano, ¿es cercana?: " + fresaObject.proximidad + " y su zona es: " + fresaObject.region + "] "));
-    }
-    if (cocoObject.kilos > 0) {
-        arrayInviernoVerano.push(("[ El coco es de verano, ¿es cercano?: " + cocoObject.proximidad + " y su zona es: " + cocoObject.region + "] "));
-    }
-    if (castannaObject.kilos > 0) {
-        arrayInviernoVerano.push(("[ La castaña es de invierno, ¿se debe guardar en la nevera?: " + castannaObject.nevera + "] "));
+        document.getElementById("separador").innerHTML = (" ------------------------------ ");
+
+        //Media y Precio Total.
+        mediaYPrecioTotal();
+        //MostrarFrutaInviernoOVerano.
+        inviernoVerano(arrayInviernoVerano);
+        //Limpiar a los 10 segundos.
+        //window.setInterval('refrescar()', 10000);
+
     }
 
-    document.getElementById("separador").innerHTML = (" ------------------------------ ");
-
-    //Media y Precio Total.
-    mediaYPrecioTotal();
-    //MostrarFrutaInviernoOVerano.
-    inviernoVerano(arrayInviernoVerano);
-    //Limpiar a los 10 segundos.
-    //window.setInterval('refrescar()', 10000);
-    
-}
-
-function ventanaTerminarPedido() {
-    window.name = "Ventana";
-    var ventana = window.open("", "MsgWindow", "width=500,height=300");
-    ventana.document.write("<button style='font-size: 25px;' id='resultadoButton;' onclick='resultadoFinal()'>Realizar Pedido</button>");
-    ventana.document.write("<button style='font-size: 25px;' id='limpiarButton' onclick='limpiarFormulario()'>Limpiar Formulario</button>");
-}
-
-/**
- * Función que recibe precioTotal() y lo muestra seguido del PrecioMedio.
- * Cumple los requisitos de redondeo.
- */
-function mediaYPrecioTotal() {
-    precioTotal = precioTotalFunc();
-
-    document.getElementById("p12").innerHTML = (" Precio Total --- " + (Math.floor(precioTotal * 100) / 100).toFixed(2) + " €"); //Redondeo hacia abajo y dos decimales
-    PrecioMedio = (precioTotal / contador);
-    document.getElementById("p13").innerHTML = (" Precio Medio --- " + PrecioMedio.toFixed(3) + " €/kg"); //Tres decimales
-}
-
-/**
- * Función que recibe el array sobre invierno o verano y muestra en una nueva ventana las descripciones.
- * @param {*} arrayIV 
- */
-function inviernoVerano(arrayIV) {
-    if (arrayIV.length > 0) { //Comprobamos si se ha introducido algún elemento en el array.
+    function ventanaTerminarPedido() {
         window.name = "Ventana";
-        var ventana2 = window.open("", "MsgWindow", "width=500,height=500");
-        ventana2.document.write("<hr> <p> " + arrayIV.join('\n') + " </p> <hr>");
+        var ventana = window.open("", "MsgWindow", "width=500,height=300");
+        ventana.document.write("<button style='font-size: 25px;' id='resultadoButton;' onclick='resultadoFinal()'>Realizar Pedido</button>");
+        ventana.document.write("<button style='font-size: 25px;' id='limpiarButton' onclick='limpiarFormulario()'>Limpiar Formulario</button>");
     }
+
+    /**
+     * Función que recibe precioTotal() y lo muestra seguido del PrecioMedio.
+     * Cumple los requisitos de redondeo.
+     */
+    function mediaYPrecioTotal() {
+        precioTotal = precioTotalFunc();
+
+        document.getElementById("p12").innerHTML = (" Precio Total --- " + (Math.floor(precioTotal * 100) / 100).toFixed(2) + " €"); //Redondeo hacia abajo y dos decimales
+        PrecioMedio = (precioTotal / contador);
+        document.getElementById("p13").innerHTML = (" Precio Medio --- " + PrecioMedio.toFixed(3) + " €/kg"); //Tres decimales
+    }
+
+    /**
+     * Función que recibe el array sobre invierno o verano y muestra en una nueva ventana las descripciones.
+     * @param {*} arrayIV 
+     */
+    function inviernoVerano(arrayIV) {
+        if (arrayIV.length > 0) { //Comprobamos si se ha introducido algún elemento en el array.
+            window.name = "Ventana";
+            var ventana2 = window.open("", "MsgWindow", "width=500,height=500");
+            ventana2.document.write("<hr> <p> " + arrayIV.join('\n') + " </p> <hr>");
+        }
+    }
+
 }
 
 /**
@@ -420,7 +447,7 @@ function limpiarFormulario() {
     document.getElementById("nocliente").checked = false;
 
     //Limpia la barra lateral derecha
-    window .location.reload();
+    window.location.reload();
 
     //Limpia las variables
     precio = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -428,3 +455,4 @@ function limpiarFormulario() {
     contador = 0;
     precioMedio = 0;
 }
+

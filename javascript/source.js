@@ -253,13 +253,29 @@ function precioTotalFunc() {
  * @param {*} kilos 
  */
 function barraL(fruta, kilos) {
+    console.log(fruta);
     if (kilos >= 1) {
         var elemento = document.createElement("p");
-        //Añado css al elemento
-        elemento.style.backgroundColor = "lightblue";
 
         elemento.appendChild(document.createTextNode(" FRUTA: " + fruta + " KILOS: " + cantidad + ""));
         document.getElementById("barraLateral").appendChild(elemento);
+        elemento.setAttribute("class", fruta);
+        let elementos = document.getElementById("barraLateral").childNodes;
+
+        for (let index = 0; index < elementos.length; index++) {
+            console.log(fruta); console.log(elementos[index].getAttribute("class"));
+            if (elementos[index].getAttribute("class") == fruta) {
+                elementos[index].style.backgroundColor = "lightblue";
+                console.log("si");
+                break;
+            }
+            if (elementos[index].getAttribute("class") != fruta) {
+                elementos[index].style.backgroundColor = "white";
+                console.log("no");
+                break;
+            }
+        }
+        
     }
 }
 

@@ -303,8 +303,13 @@ function validar() {
     let email = document.getElementById("email");
 
     //Radio Buttons
-    let tarjeta = document.getElementsByName("tarjeta");
-    let cliente = document.getElementsByName("cliente");
+    let tarjetaSi = document.getElementById("tarjetaSi");
+    let tarjetaNo = document.getElementById("tarjetaNo");
+    let sicliente = document.getElementById("sicliente");
+    let nocliente = document.getElementById("nocliente");
+
+    //Type Text en caso positivo
+    let codCliente = document.getElementById("codCliente");
 
     if (!nombre.checkValidity()) {
         nombre.style.backgroundColor = "red";
@@ -338,6 +343,30 @@ function validar() {
         errores.push(true);
     }
 
+    if (tarjetaSi.checked == true || tarjetaNo.checked == true) {
+        errores.push(true);
+    }else{
+        errores.push(false);
+        alert("No ha seleccionado el Tipo de Pago");
+    }
+
+    if (sicliente.checked == true || nocliente.checked == true) {
+        codCliente.style.backgroundColor = "white";
+        errores.push(true);
+    }else{
+        errores.push(false);
+        alert("No ha seleccionado si tiene Tarjeta de Cliente");
+    }
+    if (sicliente.checked == true) {
+        if (!codCliente.checkValidity()) {
+            codCliente.style.backgroundColor = "red";
+            errores.push(false);
+        }else{
+            codCliente.style.backgroundColor = "white";
+            errores.push(true);
+        }
+    }
+
     //Recorremos el bucle dinámico, si algún valor es falso devolverá true y ejecutará la ventana emergente, sino devolverá false.
     for (let index = 0; index < errores.length; index++) { 
         if (errores[index] == false) {
@@ -353,7 +382,8 @@ function validar() {
 function resultadoFinal() {
 
     if (validar() == false) {
-        ventanaTerminarPedido();
+        let ventanilla = window.open("compra.html", "pop-up", "width=500px height=300px scrollbars=yes");
+        //event.preventDefault();
 
         let arrayInviernoVerano = [];
         let d = new Date();
@@ -378,17 +408,10 @@ function resultadoFinal() {
         //Media y Precio Total.
         mediaYPrecioTotal();
         //MostrarFrutaInviernoOVerano.
-        inviernoVerano(arrayInviernoVerano);
+        //inviernoVerano(arrayInviernoVerano);
         //Limpiar a los 10 segundos.
         //window.setInterval('refrescar()', 10000);
 
-    }
-
-    function ventanaTerminarPedido() {
-        window.name = "Ventana";
-        var ventana = window.open("", "MsgWindow", "width=500,height=300");
-        ventana.document.write("<button style='font-size: 25px;' id='resultadoButton;' onclick='resultadoFinal()'>Realizar Pedido</button>");
-        ventana.document.write("<button style='font-size: 25px;' id='limpiarButton' onclick='limpiarFormulario()'>Limpiar Formulario</button>");
     }
 
     /**
@@ -414,7 +437,12 @@ function resultadoFinal() {
             ventana2.document.write("<hr> <p> " + arrayIV.join('\n') + " </p> <hr>");
         }
     }
-
+    function ventanaTerminarPedido() {
+        window.name = "Ventana";
+        var ventana = window.open("", "MsgWindow", "width=500,height=300");
+        ventana.document.write("<button style='font-size: 25px;' id='resultadoButton;' onclick='resultadoFinal()'>Realizar Pedido</button>");
+        ventana.document.write("<button style='font-size: 25px;' id='limpiarButton' onclick='limpiarFormulario()'>Limpiar Formulario</button>");
+    }
 }
 
 /**
@@ -441,10 +469,13 @@ function limpiarFormulario() {
     document.getElementById("email").value = '';
 
     //Limpia los radio buttons
-    document.getElementById("tarjeta").checked = false;
-    document.getElementById("entrega").checked = false;
+    document.getElementById("tarjetaSi").checked = false;
+    document.getElementById("tarjetaNo").checked = false;
     document.getElementById("sicliente").checked = false;
     document.getElementById("nocliente").checked = false;
+
+    //Limpia el imput restante
+    document.getElementById("codCliente").value = '';
 
     //Limpia la barra lateral derecha
     window.location.reload();

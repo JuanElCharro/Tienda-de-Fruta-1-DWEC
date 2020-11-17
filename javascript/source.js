@@ -267,12 +267,12 @@ function barraL(fruta, kilos) {
             if (elementos[index].getAttribute("class") == fruta) {
                 elementos[index].style.backgroundColor = "lightblue";
                 console.log("si");
-                break;
+                
             }
             if (elementos[index].getAttribute("class") != fruta) {
                 elementos[index].style.backgroundColor = "white";
                 console.log("no");
-                break;
+                
             }
         }
         

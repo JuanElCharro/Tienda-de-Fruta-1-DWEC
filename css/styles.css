@@ -8,7 +8,7 @@
     padding-bottom: 2%;
 }
 
-.titulo{
+.titulo {
     font-family: Impact, 'Arial Narrow Bold', sans-serif;
     font-size: 50px;
     background-color: crimson;
@@ -19,43 +19,42 @@
     display: inline-block;
     background-color: rgb(255, 160, 160);
     overflow: hidden;
-    
     font-family: sans-serif, 'Open Sans';
     font-size: 17px;
     width: 200px;
     height: 170px;
 }
 
-img{
+img {
     width: 270px;
 }
 
-.mostrar{
+.mostrar {
     background-color: rgb(186, 179, 255);
 }
 
-button{
+button {
     padding: 0.5%;
     width: 49%;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 20px;
 }
 
-.resultadoButton{
+.resultadoButton {
     float: left;
 }
 
-.limpiarButton{
+.limpiarButton {
     float: right;
 }
 
-p{
+p {
     text-align: center;
     font-size: 15px;
     font-family: 'Open Sans';
 }
 
-#barraLateral{
+#barraLateral {
     overflow: hidden;
     width: 25%;
     height: 500px;
@@ -65,17 +64,43 @@ p{
     border: crimson 2px solid;
 }
 
-fieldset{
+fieldset {
     font-family: 'Open Sans';
     font-size: medium;
 }
 
-#fieldset1{
-   width: 50px;
-   float: left;
-}
-
-#fieldset2{
+#fieldset1 {
     width: 50px;
     float: left;
+}
+
+#fieldset2 {
+    width: 50px;
+    float: left;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px black;
+}
+
+.tooltip .tooltiptext {
+    font-size: 12px;
+    visibility: hidden;
+    width: 100px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 4px;
+    right: 45%;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }

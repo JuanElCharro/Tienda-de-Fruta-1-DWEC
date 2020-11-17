@@ -57,6 +57,18 @@ var moraObject = new FrutaInvierno("Mora", 0, 7.9, true);
 var naranjaObject = new FrutaVerano("Naranja", 0, 2.11, true, "España");
 var papayaObject = new FrutaVerano("Papaya", 0, 8.12, false, "Ecuador");
 
+var arrayDeObjetos = [pinnaObject, pomeloObject, castannaObject, cocoObject, fresaObject, grosellaObject, higoObject, lichiObject, moraObject, naranjaObject, papayaObject];
+
+window.onload = () => {
+    for (let index = 0; index < arrayDeObjetos.length; index++) {
+        document.getElementsByTagName("img")[index].addEventListener("mouseover", () => {
+            document.getElementsByClassName("tooltiptext")[index].innerHTML = (" La "+ arrayDeObjetos[index].nombre +" es de verano, ¿es cercana?: " + arrayDeObjetos[index].proximidad + " y su zona es: " + arrayDeObjetos[index].region + " ") 
+        }, false);
+    }
+}
+
+//document.getElementById("parrafo1").innerHTML("[ La piña es de verano, ¿es cercana?: " + pinnaObject.proximidad + " y su zona es: " + pinnaObject.region + "] ");
+
 /**
  * Función Principal
  */
@@ -344,6 +356,7 @@ function resultadoFinal() {
     inviernoVerano(arrayInviernoVerano);
     //Limpiar a los 10 segundos.
     //window.setInterval('refrescar()', 10000);
+    
 }
 
 function ventanaTerminarPedido() {

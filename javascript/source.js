@@ -259,7 +259,7 @@ function barraL(fruta, kilos) {
         document.getElementById("barraLateral").appendChild(elemento);
         elemento.setAttribute("class", fruta);
         let elementos = document.getElementById("barraLateral").childNodes;
-
+        
         for (let index = 0; index < elementos.length; index++) {
             console.log(fruta); console.log(elementos[index].getAttribute("class"));
             if (elementos[index].getAttribute("class") == fruta) {
@@ -270,8 +270,9 @@ function barraL(fruta, kilos) {
                 elementos[index].style.backgroundColor = "white";
                 console.log("no");
             }
+            //Para el scroll de la vista, que muestre la última.
+            document.getElementById("barraLateral").scrollIntoView(false);
         }
-
     }
 }
 
@@ -358,7 +359,6 @@ function validar() {
         errores.push(false);
         tarjetaSiL.style.backgroundColor = "red";
         tarjetaNoL.style.backgroundColor = "red";
-        //alert("No ha seleccionado el Tipo de Pago");
     }
 
     if (sicliente.checked == true || nocliente.checked == true) {
@@ -370,7 +370,6 @@ function validar() {
         errores.push(false);
         siclienteL.style.backgroundColor = "red";
         noclienteL.style.backgroundColor = "red";
-        //alert("No ha seleccionado si tiene Tarjeta de Cliente");
     }
     if (sicliente.checked == true) {
         if (!codCliente.checkValidity()) {

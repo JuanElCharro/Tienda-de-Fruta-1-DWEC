@@ -251,7 +251,6 @@ function principal(frutaPulsada) {
  * @param {*} kilos 
  */
 function barraL(fruta, kilos) {
-    console.log(fruta);
     if (kilos >= 1) {
         var elemento = document.createElement("p");
 
@@ -261,14 +260,11 @@ function barraL(fruta, kilos) {
         let elementos = document.getElementById("barraLateral").childNodes;
         
         for (let index = 0; index < elementos.length; index++) {
-            console.log(fruta); console.log(elementos[index].getAttribute("class"));
             if (elementos[index].getAttribute("class") == fruta) {
                 elementos[index].style.backgroundColor = "lightblue";
-                console.log("si");
             }
             if (elementos[index].getAttribute("class") != fruta) {
                 elementos[index].style.backgroundColor = "white";
-                console.log("no");
             }
             //Para el scroll de la vista, que muestre la última.
             document.getElementById("barraLateral").scrollIntoView(false);

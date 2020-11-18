@@ -35,18 +35,16 @@ window.onload = () => {
 
     document.getElementById("separador").innerHTML = (" ------------------------------ ");
 
-    mediaYPrecioTotal();
-
     /**
      * Función que recibe precioTotal() y lo muestra seguido del PrecioMedio.
      * Cumple los requisitos de redondeo.
      */
     function mediaYPrecioTotal() {
         let precioTotal = precioTotalFunc();
-        let cont = window.contador;
+        let cont = ventana.contador;
 
         document.getElementById("p12").innerHTML = (" Precio Total --- " + (Math.floor(precioTotal * 100) / 100).toFixed(2) + " €"); //Redondeo hacia abajo y dos decimales
-        let PrecioMedio = (precioTotal / cont);
+        let PrecioMedio = (precioTotal / cont); console.log(cont);
         document.getElementById("p13").innerHTML = (" Precio Medio --- " + PrecioMedio.toFixed(3) + " €/kg"); //Tres decimales
     }
 
@@ -61,4 +59,6 @@ window.onload = () => {
         }
         return precioTotal;
     }
+
+    mediaYPrecioTotal(); //Mostramos precio total y precio medio
 }

@@ -282,7 +282,8 @@ function barraL(fruta, kilos) {
 
 /**
  * Función que validará el formulario del usuario. Si hay algún elemento no validado
- * devolverá un error y no se abrirá la nueva ventana.
+ * devolverá un error y no se abrirá la nueva ventana. En caso de error se tiñe de rojo
+ * y si es correcto vuelve a su color original (en este caso un azul RGB).
  */
 function validar() {
     //Creo un array dinámico, en el cual introduciré los errores y verificaré al final si cumplen la condición todos para ejecutar la ventana emergente.
@@ -396,6 +397,7 @@ function validar() {
 
 /**
  * Función que abre una nueva ventana con el resultado.
+ * Es obligatorio que esté bien el formulario.
  */
 function resultadoFinal() {
     if (validar() == false) {

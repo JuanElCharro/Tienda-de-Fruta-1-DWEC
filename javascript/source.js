@@ -247,18 +247,6 @@ function principal(frutaPulsada) {
 }
 
 /**
- * Función que calcula el precio total.
- */
-function precioTotalFunc() {
-    var precioTotal = 0;
-
-    for (let index = 0; index < precio.length; index++) {
-        precioTotal = precioTotal + precio[index];
-    }
-    return precioTotal;
-}
-
-/**
  * Muestra el nombre de la fruta y la cantidad de kilos que se han introducido en el input text 
  * de la fruta correspondiente. Solo lo muestra en la barra lateral si hay más de un kilo.
  * @param {*} fruta 
@@ -385,6 +373,7 @@ function resultadoFinal() {
         let ventanilla = window.open("compra.html", "pop-up", "width=500px height=300px scrollbars=yes");
         //event.preventDefault();
 
+        /*
         let arrayInviernoVerano = [];
         let d = new Date();
         let n = d.toLocaleString();
@@ -406,24 +395,13 @@ function resultadoFinal() {
         document.getElementById("separador").innerHTML = (" ------------------------------ ");
 
         //Media y Precio Total.
-        mediaYPrecioTotal();
+        //mediaYPrecioTotal();
         //MostrarFrutaInviernoOVerano.
         //inviernoVerano(arrayInviernoVerano);
         //Limpiar a los 10 segundos.
         //window.setInterval('refrescar()', 10000);
 
-    }
-
-    /**
-     * Función que recibe precioTotal() y lo muestra seguido del PrecioMedio.
-     * Cumple los requisitos de redondeo.
-     */
-    function mediaYPrecioTotal() {
-        precioTotal = precioTotalFunc();
-
-        document.getElementById("p12").innerHTML = (" Precio Total --- " + (Math.floor(precioTotal * 100) / 100).toFixed(2) + " €"); //Redondeo hacia abajo y dos decimales
-        PrecioMedio = (precioTotal / contador);
-        document.getElementById("p13").innerHTML = (" Precio Medio --- " + PrecioMedio.toFixed(3) + " €/kg"); //Tres decimales
+        */
     }
 
     /**

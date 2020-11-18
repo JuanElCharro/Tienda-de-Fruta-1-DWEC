@@ -243,10 +243,24 @@ window.onload = () => {
         }, false);
     }
 
+    //Muestra el campo en caso de tener la tarjeta de cliente
+    document.getElementById("sicliente").addEventListener("click", () => {
+        document.getElementById("codClienteL").style.display = "block";
+        document.getElementById("codCliente").style.display = "block";
+    })
+
+    //Oculta el campo en caso de no tener la tarjeta de cliente
+    document.getElementById("nocliente").addEventListener("click", () => {
+        document.getElementById("codClienteL").style.display = "none";
+        document.getElementById("codCliente").style.display = "none";
+    })
+
+    //Botón de Resultado
     document.getElementById("resultadoButton").addEventListener("click", () => {
         resultadoFinal();
     })
 
+    //Botón de Limpieza de variables
     document.getElementById("limpiarButton").addEventListener("click", () => {
         limpiarFormulario();
     })
@@ -366,6 +380,7 @@ function validar() {
         tarjetaNoL.style.backgroundColor = "red";
     }
 
+    //Radio Buttons
     if (sicliente.checked == true || nocliente.checked == true) {
         errores.push(true);
         siclienteL.style.backgroundColor = "rgb(186, 179, 255)";

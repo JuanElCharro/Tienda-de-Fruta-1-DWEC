@@ -313,7 +313,7 @@ function validar() {
         errores.push(false);
     } else {
         nombre.style.backgroundColor = "white";
-        nombreL.style.backgroundColor = "white";
+        nombreL.style.backgroundColor = "rgb(186, 179, 255)";
         errores.push(true);
     }
 
@@ -323,7 +323,7 @@ function validar() {
         errores.push(false);
     } else {
         apellidos.style.backgroundColor = "white";
-        apellidosL.style.backgroundColor = "white";
+        apellidosL.style.backgroundColor = "rgb(186, 179, 255)";
         errores.push(true);
     }
 
@@ -333,7 +333,7 @@ function validar() {
         errores.push(false);
     } else {
         direccion.style.backgroundColor = "white";
-        direccionL.style.backgroundColor = "white";
+        direccionL.style.backgroundColor = "rgb(186, 179, 255)";
         errores.push(true);
     }
 
@@ -343,7 +343,7 @@ function validar() {
         errores.push(false);
     } else {
         email.style.backgroundColor = "white";
-        emailL.style.backgroundColor = "white";
+        emailL.style.backgroundColor = "rgb(186, 179, 255)";
         errores.push(true);
     }
 

@@ -1,10 +1,19 @@
-
-
 window.onload = () => {
-    let volv = document.getElementById("volver");
-    let term = document.getElementById("terminar");
+    //Botón limpiar
+    document.getElementById("volv").addEventListener("click", function () {
+        window.close();
+    });
 
+    //Botón Terminar Pedido
+    document.getElementById("term").addEventListener("click", function () {
+        window.close();
+        ventana.limpiarFormulario();
+    });
+
+    //Variable para acceder al otro fichero de JavaScript
     let ventana = window.opener;
+
+    //Variables para usar otras variables del otro fichero
     let venta = ventana.precio;
     let contador = window.contador;
 
@@ -26,6 +35,8 @@ window.onload = () => {
     document.getElementById("p3").innerHTML = (" Castaña --- " + ventana.castannaObject.kilos + "kg --- " + ventana.castannaObject.precio + "€u --- " + venta[2] + "€ ");
 
     document.getElementById("separador").innerHTML = (" ------------------------------ ");
+
+    mediaYPrecioTotal();
 
     /**
      * Función que recibe precioTotal() y lo muestra seguido del PrecioMedio.
@@ -50,11 +61,4 @@ window.onload = () => {
         }
         return precioTotal;
     }
-
-    //Media y Precio Total.
-    mediaYPrecioTotal();
-    //MostrarFrutaInviernoOVerano.
-    //ventana.inviernoVerano(ventana.arrayInviernoVerano);
-    //Limpiar a los 10 segundos.
-    //window.setInterval('refrescar()', 10000);
 }

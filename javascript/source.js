@@ -66,7 +66,6 @@ window.onload = () => {
             document.getElementsByClassName("tooltiptext")[index].innerHTML = (" La " + arrayDeObjetos[index].nombre + " ¿es cercana?: " + arrayDeObjetos[index].proximidad + " y es de: " + arrayDeObjetos[index].region + " ¿nevera? " + arrayDeObjetos[index].nevera + "");
         }, false);
     }
-
 }
 
 /**

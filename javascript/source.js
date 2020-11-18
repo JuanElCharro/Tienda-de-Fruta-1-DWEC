@@ -61,187 +61,195 @@ var papayaObject = new FrutaVerano("Papaya", 0, 8.12, false, "Ecuador");
 var arrayDeObjetos = [pinnaObject, pomeloObject, castannaObject, cocoObject, fresaObject, grosellaObject, higoObject, lichiObject, moraObject, naranjaObject, papayaObject];
 
 window.onload = () => {
-    //Array para el tooltip
-    for (let index = 0; index < arrayDeObjetos.length; index++) {
-        document.getElementsByTagName("img")[index].addEventListener("mouseover", () => {
-            document.getElementsByClassName("tooltiptext")[index].innerHTML = (" La " + arrayDeObjetos[index].nombre + " ¿es cercana?: " + arrayDeObjetos[index].proximidad + " y es de: " + arrayDeObjetos[index].region + " ¿nevera? " + arrayDeObjetos[index].nevera + "");
+    //ADD Event Listeder del Tooltip
+    for (let i = 0; i < arrayDeObjetos.length; i++) {
+        document.getElementsByTagName("img")[i].addEventListener("mouseover", () => {
+            //Elemento tooltip
+            document.getElementsByClassName("tooltiptext")[i].innerHTML = (" La " + arrayDeObjetos[i].nombre + " ¿es cercana?: " + arrayDeObjetos[i].proximidad + " y es de: " + arrayDeObjetos[i].region + " ¿nevera? " + arrayDeObjetos[i].nevera + "");
         }, false);
     }
-}
 
-/**
- * Función Principal
- */
-function principal(frutaPulsada) {
-    let recogerValorInput = 0;
+    //ADD Event Listener de Frutas (Eliminados onclick)
+    for (let j = 0; j < arrayDeObjetos.length; j++) {
+        document.getElementsByTagName("img")[j].addEventListener("click", () => {
+            let recogerValorInput = 0;
+            switch (j) {
+                case 0:
+                    recogerValorInput = document.getElementById("pinnaA").value;
+                    cantidad = Number(recogerValorInput);
 
-    switch (frutaPulsada) {
-        case "pinna":
-            recogerValorInput = document.getElementById("pinnaA").value;
-            cantidad = Number(recogerValorInput);
+                    pinnaObject.kilos =
+                        pinnaObject.kilos + cantidad;
 
-            pinnaObject.kilos =
-                pinnaObject.kilos + cantidad;
+                    kilos[0] = pinnaObject.kilos;
 
-            kilos[0] = pinnaObject.kilos;
+                    for (let index = 0; index < cantidad; index++) {
+                        precio[0] = precio[0] + pinnaObject.precio;
+                        contador++; //Para la media
+                    }
+                    barraL(pinnaObject.nombre, pinnaObject.kilos);
+                    break;
+                case 1:
+                    recogerValorInput = document.getElementById("pomeloA").value;
+                    cantidad = Number(recogerValorInput);
 
-            for (let index = 0; index < cantidad; index++) {
-                precio[0] = precio[0] + pinnaObject.precio;
-                contador++; //Para la media
+                    pomeloObject.kilos =
+                        pomeloObject.kilos + cantidad;
+
+                    kilos[0] = pomeloObject.kilos;
+
+                    for (let index = 0; index < cantidad; index++) {
+                        precio[1] = precio[1] + pomeloObject.precio;
+                        contador++; //Para la media
+                    }
+                    barraL(pomeloObject.nombre, pomeloObject.kilos);
+                    break;
+                case 2:
+                    recogerValorInput = document.getElementById("castannaA").value;
+                    cantidad = Number(recogerValorInput);
+
+                    castannaObject.kilos =
+                        castannaObject.kilos + cantidad;
+
+                    kilos[2] = castannaObject.kilos;
+
+                    for (let index = 0; index < cantidad; index++) {
+                        precio[2] = precio[2] + castannaObject.precio;
+                        contador++; //Para la media
+                    }
+                    barraL(castannaObject.nombre, castannaObject.kilos);
+                    break;
+                case 3:
+                    recogerValorInput = document.getElementById("cocoA").value;
+                    cantidad = Number(recogerValorInput);
+
+                    cocoObject.kilos =
+                        cocoObject.kilos + cantidad;
+
+                    kilos[3] = cocoObject.kilos;
+
+                    for (let index = 0; index < cantidad; index++) {
+                        precio[3] = precio[3] + cocoObject.precio;
+                        contador++; //Para la media
+                    }
+                    barraL(cocoObject.nombre, cocoObject.kilos);
+                    break;
+                case 4:
+                    recogerValorInput = document.getElementById("fresaA").value;
+                    cantidad = Number(recogerValorInput);
+
+                    fresaObject.kilos =
+                        fresaObject.kilos + cantidad;
+
+                    kilos[4] = fresaObject.kilos;
+
+                    for (let index = 0; index < cantidad; index++) {
+                        precio[4] = precio[4] + fresaObject.precio;
+                        contador++; //Para la media
+                    }
+                    barraL(fresaObject.nombre, fresaObject.kilos);
+                    break;
+                case 5:
+                    recogerValorInput = document.getElementById("grosellaA").value;
+                    cantidad = Number(recogerValorInput);
+
+                    grosellaObject.kilos =
+                        grosellaObject.kilos + cantidad;
+
+                    kilos[5] = grosellaObject.kilos;
+
+                    for (let index = 0; index < cantidad; index++) {
+                        precio[5] = precio[5] + grosellaObject.precio;
+                        contador++; //Para la media
+                    }
+                    barraL(grosellaObject.nombre, grosellaObject.kilos);
+                    break;
+                case 6:
+                    recogerValorInput = document.getElementById("higoA").value;
+                    cantidad = Number(recogerValorInput);
+
+                    higoObject.kilos =
+                        higoObject.kilos + cantidad;
+
+                    kilos[6] = higoObject.kilos;
+
+                    for (let index = 0; index < cantidad; index++) {
+                        precio[6] = precio[6] + higoObject.precio;
+                        contador++; //Para la media
+                    }
+                    barraL(higoObject.nombre, higoObject.kilos);
+                    break;
+                case 7:
+                    recogerValorInput = document.getElementById("lichiA").value;
+                    cantidad = Number(recogerValorInput);
+
+                    lichiObject.kilos =
+                        lichiObject.kilos + cantidad;
+
+                    kilos[7] = lichiObject.kilos;
+
+                    for (let index = 0; index < cantidad; index++) {
+                        precio[7] = precio[7] + lichiObject.precio;
+                        contador++; //Para la media
+                    }
+                    barraL(lichiObject.nombre, lichiObject.kilos);
+                    break;
+                case 8:
+                    recogerValorInput = document.getElementById("moraA").value;
+                    cantidad = Number(recogerValorInput);
+
+                    moraObject.kilos =
+                        moraObject.kilos + cantidad;
+
+                    kilos[8] = moraObject.kilos;
+
+                    for (let index = 0; index < cantidad; index++) {
+                        precio[8] = precio[8] + moraObject.precio;
+                        contador++; //Para la media
+                    }
+                    barraL(moraObject.nombre, moraObject.kilos);
+                    break;
+                case 9:
+                    recogerValorInput = document.getElementById("naranjaA").value;
+                    cantidad = Number(recogerValorInput);
+
+                    naranjaObject.kilos =
+                        naranjaObject.kilos + cantidad;
+
+                    kilos[9] = naranjaObject.kilos;
+
+                    for (let index = 0; index < cantidad; index++) {
+                        precio[9] = precio[9] + naranjaObject.precio;
+                        contador++; //Para la media
+                    }
+                    barraL(naranjaObject.nombre, naranjaObject.kilos);
+                    break;
+                case 10:
+                    recogerValorInput = document.getElementById("papayaA").value;
+                    cantidad = Number(recogerValorInput);
+
+                    papayaObject.kilos =
+                        papayaObject.kilos + cantidad;
+
+                    kilos[10] = papayaObject.kilos;
+
+                    for (let index = 0; index < cantidad; index++) {
+                        precio[10] = precio[10] + papayaObject.precio;
+                        contador++; //Para la media
+                    }
+                    barraL(papayaObject.nombre, papayaObject.kilos);
+                    break;
             }
-            barraL(pinnaObject.nombre, pinnaObject.kilos);
-            break;
-        case "pomelo":
-            recogerValorInput = document.getElementById("pomeloA").value;
-            cantidad = Number(recogerValorInput);
-
-            pomeloObject.kilos =
-                pomeloObject.kilos + cantidad;
-
-            kilos[0] = pomeloObject.kilos;
-
-            for (let index = 0; index < cantidad; index++) {
-                precio[1] = precio[1] + pomeloObject.precio;
-                contador++; //Para la media
-            }
-            barraL(pomeloObject.nombre, pomeloObject.kilos);
-            break;
-        case "castanna":
-            recogerValorInput = document.getElementById("castannaA").value;
-            cantidad = Number(recogerValorInput);
-
-            castannaObject.kilos =
-                castannaObject.kilos + cantidad;
-
-            kilos[2] = castannaObject.kilos;
-
-            for (let index = 0; index < cantidad; index++) {
-                precio[2] = precio[2] + castannaObject.precio;
-                contador++; //Para la media
-            }
-            barraL(castannaObject.nombre, castannaObject.kilos);
-            break;
-        case "coco":
-            recogerValorInput = document.getElementById("cocoA").value;
-            cantidad = Number(recogerValorInput);
-
-            cocoObject.kilos =
-                cocoObject.kilos + cantidad;
-
-            kilos[3] = cocoObject.kilos;
-
-            for (let index = 0; index < cantidad; index++) {
-                precio[3] = precio[3] + cocoObject.precio;
-                contador++; //Para la media
-            }
-            barraL(cocoObject.nombre, cocoObject.kilos);
-            break;
-        case "fresa":
-            recogerValorInput = document.getElementById("fresaA").value;
-            cantidad = Number(recogerValorInput);
-
-            fresaObject.kilos =
-                fresaObject.kilos + cantidad;
-
-            kilos[4] = fresaObject.kilos;
-
-            for (let index = 0; index < cantidad; index++) {
-                precio[4] = precio[4] + fresaObject.precio;
-                contador++; //Para la media
-            }
-            barraL(fresaObject.nombre, fresaObject.kilos);
-            break;
-        case "grosella":
-            recogerValorInput = document.getElementById("grosellaA").value;
-            cantidad = Number(recogerValorInput);
-
-            grosellaObject.kilos =
-                grosellaObject.kilos + cantidad;
-
-            kilos[5] = grosellaObject.kilos;
-
-            for (let index = 0; index < cantidad; index++) {
-                precio[5] = precio[5] + grosellaObject.precio;
-                contador++; //Para la media
-            }
-            barraL(grosellaObject.nombre, grosellaObject.kilos);
-            break;
-        case "higo":
-            recogerValorInput = document.getElementById("higoA").value;
-            cantidad = Number(recogerValorInput);
-
-            higoObject.kilos =
-                higoObject.kilos + cantidad;
-
-            kilos[6] = higoObject.kilos;
-
-            for (let index = 0; index < cantidad; index++) {
-                precio[6] = precio[6] + higoObject.precio;
-                contador++; //Para la media
-            }
-            barraL(higoObject.nombre, higoObject.kilos);
-            break;
-        case "lichi":
-            recogerValorInput = document.getElementById("lichiA").value;
-            cantidad = Number(recogerValorInput);
-
-            lichiObject.kilos =
-                lichiObject.kilos + cantidad;
-
-            kilos[7] = lichiObject.kilos;
-
-            for (let index = 0; index < cantidad; index++) {
-                precio[7] = precio[7] + lichiObject.precio;
-                contador++; //Para la media
-            }
-            barraL(lichiObject.nombre, lichiObject.kilos);
-            break;
-        case "mora":
-            recogerValorInput = document.getElementById("moraA").value;
-            cantidad = Number(recogerValorInput);
-
-            moraObject.kilos =
-                moraObject.kilos + cantidad;
-
-            kilos[8] = moraObject.kilos;
-
-            for (let index = 0; index < cantidad; index++) {
-                precio[8] = precio[8] + moraObject.precio;
-                contador++; //Para la media
-            }
-            barraL(moraObject.nombre, moraObject.kilos);
-            break;
-        case "naranja":
-            recogerValorInput = document.getElementById("naranjaA").value;
-            cantidad = Number(recogerValorInput);
-
-            naranjaObject.kilos =
-                naranjaObject.kilos + cantidad;
-
-            kilos[9] = naranjaObject.kilos;
-
-            for (let index = 0; index < cantidad; index++) {
-                precio[9] = precio[9] + naranjaObject.precio;
-                contador++; //Para la media
-            }
-            barraL(naranjaObject.nombre, naranjaObject.kilos);
-            break;
-        case "papaya":
-            recogerValorInput = document.getElementById("papayaA").value;
-            cantidad = Number(recogerValorInput);
-
-            papayaObject.kilos =
-                papayaObject.kilos + cantidad;
-
-            kilos[10] = papayaObject.kilos;
-
-            for (let index = 0; index < cantidad; index++) {
-                precio[10] = precio[10] + papayaObject.precio;
-                contador++; //Para la media
-            }
-            barraL(papayaObject.nombre, papayaObject.kilos);
-            break;
+        }, false);
     }
+
+    document.getElementById("resultadoButton").addEventListener("click", () => {
+        resultadoFinal();
+    })
+
+    document.getElementById("limpiarButton").addEventListener("click", () => {
+        limpiarFormulario();
+    })
 }
 
 /**
@@ -258,7 +266,7 @@ function barraL(fruta, kilos) {
         document.getElementById("barraLateral").appendChild(elemento);
         elemento.setAttribute("class", fruta);
         let elementos = document.getElementById("barraLateral").childNodes;
-        
+
         for (let index = 0; index < elementos.length; index++) {
             if (elementos[index].getAttribute("class") == fruta) {
                 elementos[index].style.backgroundColor = "lightblue";
@@ -351,7 +359,7 @@ function validar() {
         errores.push(true);
         tarjetaSiL.style.backgroundColor = "rgb(186, 179, 255)";
         tarjetaNoL.style.backgroundColor = "rgb(186, 179, 255)";
-    }else{
+    } else {
         errores.push(false);
         tarjetaSiL.style.backgroundColor = "red";
         tarjetaNoL.style.backgroundColor = "red";
@@ -362,7 +370,7 @@ function validar() {
         siclienteL.style.backgroundColor = "rgb(186, 179, 255)";
         noclienteL.style.backgroundColor = "rgb(186, 179, 255)";
         codCliente.style.backgroundColor = "white";
-    }else{
+    } else {
         errores.push(false);
         siclienteL.style.backgroundColor = "red";
         noclienteL.style.backgroundColor = "red";
@@ -371,14 +379,14 @@ function validar() {
         if (!codCliente.checkValidity()) {
             codCliente.style.backgroundColor = "red";
             errores.push(false);
-        }else{
+        } else {
             codCliente.style.backgroundColor = "white";
             errores.push(true);
         }
     }
 
     //Recorremos el bucle dinámico, si algún valor es falso devolverá true y ejecutará la ventana emergente, sino devolverá false.
-    for (let index = 0; index < errores.length; index++) { 
+    for (let index = 0; index < errores.length; index++) {
         if (errores[index] == false) {
             return true;
         }
@@ -390,7 +398,6 @@ function validar() {
  * Función que abre una nueva ventana con el resultado.
  */
 function resultadoFinal() {
-
     if (validar() == false) {
         let ventanilla = window.open("compra.html", "pop-up", "width=500px height=300px scrollbars=yes");
     }
@@ -428,7 +435,7 @@ function limpiarFormulario() {
     //Limpia el imput restante
     document.getElementById("codCliente").value = '';
 
-    //Limpia la barra lateral derecha
+    //Actualiza para terminar de confirmar y eliminar los borrados.
     window.location.reload();
 
     //Limpia las variables

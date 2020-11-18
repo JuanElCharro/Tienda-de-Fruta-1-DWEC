@@ -15,7 +15,6 @@ window.onload = () => {
 
     //Variables para usar otras variables del otro fichero
     let venta = ventana.precio;
-    let contador = window.contador;
 
     let d = new Date();
     let n = d.toLocaleString();
@@ -44,9 +43,10 @@ window.onload = () => {
      */
     function mediaYPrecioTotal() {
         let precioTotal = precioTotalFunc();
+        let cont = window.contador;
 
         document.getElementById("p12").innerHTML = (" Precio Total --- " + (Math.floor(precioTotal * 100) / 100).toFixed(2) + " €"); //Redondeo hacia abajo y dos decimales
-        let PrecioMedio = (precioTotal / contador);
+        let PrecioMedio = (precioTotal / cont);
         document.getElementById("p13").innerHTML = (" Precio Medio --- " + PrecioMedio.toFixed(3) + " €/kg"); //Tres decimales
     }
 

@@ -44,7 +44,7 @@ class FrutaInvierno extends Fruta {
     }
 }
 
-//Objetos, me daban error al colocarlos encima de las clases Fruta, ahora ya no.
+//Objetos de cada fruta
 var pinnaObject = new FrutaVerano("Piña", 0, 4.1, true, "España");
 var pomeloObject = new FrutaVerano("Pomelo", 0, 15.2, false, "Chile");
 var castannaObject = new FrutaInvierno("Castaña", 0, 1.3, false);
@@ -57,6 +57,7 @@ var moraObject = new FrutaInvierno("Mora", 0, 7.9, true);
 var naranjaObject = new FrutaVerano("Naranja", 0, 2.11, true, "España");
 var papayaObject = new FrutaVerano("Papaya", 0, 8.12, false, "Ecuador");
 
+//Array de objetos de cada fruta.
 var arrayDeObjetos = [pinnaObject, pomeloObject, castannaObject, cocoObject, fresaObject, grosellaObject, higoObject, lichiObject, moraObject, naranjaObject, papayaObject];
 
 window.onload = () => {
@@ -72,8 +73,6 @@ window.onload = () => {
  * Función Principal
  */
 function principal(frutaPulsada) {
-    //let pedidoAlUsuario = prompt("INTRODUZCA LOS KILOS: ");
-    //let cantidad = Number(pedidoAlUsuario);
     let recogerValorInput = 0;
 
     switch (frutaPulsada) {
@@ -277,7 +276,8 @@ function barraL(fruta, kilos) {
 }
 
 /**
- * Función que validará el formulario del usuario.
+ * Función que validará el formulario del usuario. Si hay algún elemento no validado
+ * devolverá un error y no se abrirá la nueva ventana.
  */
 function validar() {
     //Creo un array dinámico, en el cual introduciré los errores y verificaré al final si cumplen la condición todos para ejecutar la ventana emergente.
@@ -289,60 +289,88 @@ function validar() {
     let direccion = document.getElementById("direccion");
     let email = document.getElementById("email");
 
+    //Type text labels
+    let nombreL = document.getElementById("nombreL");
+    let apellidosL = document.getElementById("apellidosL");
+    let direccionL = document.getElementById("direccionL");
+    let emailL = document.getElementById("emailL");
+
     //Radio Buttons
     let tarjetaSi = document.getElementById("tarjetaSi");
     let tarjetaNo = document.getElementById("tarjetaNo");
     let sicliente = document.getElementById("sicliente");
     let nocliente = document.getElementById("nocliente");
 
+    //Radio Buttons labels
+    let tarjetaSiL = document.getElementById("tarjetaSiL");
+    let tarjetaNoL = document.getElementById("tarjetaNoL");
+    let siclienteL = document.getElementById("siclienteL");
+    let noclienteL = document.getElementById("noclienteL");
+
     //Type Text en caso positivo
     let codCliente = document.getElementById("codCliente");
 
     if (!nombre.checkValidity()) {
         nombre.style.backgroundColor = "red";
+        nombreL.style.backgroundColor = "red";
         errores.push(false);
     } else {
         nombre.style.backgroundColor = "white";
+        nombreL.style.backgroundColor = "white";
         errores.push(true);
     }
 
     if (!apellidos.checkValidity()) {
         apellidos.style.backgroundColor = "red";
+        apellidosL.style.backgroundColor = "red";
         errores.push(false);
     } else {
         apellidos.style.backgroundColor = "white";
+        apellidosL.style.backgroundColor = "white";
         errores.push(true);
     }
 
     if (!direccion.checkValidity()) {
         direccion.style.backgroundColor = "red";
+        direccionL.style.backgroundColor = "red";
         errores.push(false);
     } else {
         direccion.style.backgroundColor = "white";
+        direccionL.style.backgroundColor = "white";
         errores.push(true);
     }
 
     if (!email.checkValidity()) {
         email.style.backgroundColor = "red";
+        emailL.style.backgroundColor = "red";
         errores.push(false);
     } else {
         email.style.backgroundColor = "white";
+        emailL.style.backgroundColor = "white";
         errores.push(true);
     }
 
     if (tarjetaSi.checked == true || tarjetaNo.checked == true) {
         errores.push(true);
+        tarjetaSiL.style.backgroundColor = "rgb(186, 179, 255)";
+        tarjetaNoL.style.backgroundColor = "rgb(186, 179, 255)";
     }else{
         errores.push(false);
-        alert("No ha seleccionado el Tipo de Pago");
+        tarjetaSiL.style.backgroundColor = "red";
+        tarjetaNoL.style.backgroundColor = "red";
+        //alert("No ha seleccionado el Tipo de Pago");
     }
 
     if (sicliente.checked == true || nocliente.checked == true) {
-        codCliente.style.backgroundColor = "white";
         errores.push(true);
+        siclienteL.style.backgroundColor = "rgb(186, 179, 255)";
+        noclienteL.style.backgroundColor = "rgb(186, 179, 255)";
+        codCliente.style.backgroundColor = "white";
     }else{
         errores.push(false);
-        alert("No ha seleccionado si tiene Tarjeta de Cliente");
+        siclienteL.style.backgroundColor = "red";
+        noclienteL.style.backgroundColor = "red";
+        //alert("No ha seleccionado si tiene Tarjeta de Cliente");
     }
     if (sicliente.checked == true) {
         if (!codCliente.checkValidity()) {
@@ -364,61 +392,12 @@ function validar() {
 }
 
 /**
- * Función para mostrar precio Total y Precio Medio.
+ * Función que abre una nueva ventana con el resultado.
  */
 function resultadoFinal() {
 
     if (validar() == false) {
         let ventanilla = window.open("compra.html", "pop-up", "width=500px height=300px scrollbars=yes");
-        //event.preventDefault();
-
-        /*
-        let arrayInviernoVerano = [];
-        let d = new Date();
-        let n = d.toLocaleString();
-        document.getElementById("p0").innerHTML = ("Fecha de compra: " + n);
-
-        //Mostrar Las Frutas - Ordenado Inverso
-        document.getElementById("p2").innerHTML = (" Pomelo --- " + pomeloObject.kilos + "kg --- " + pomeloObject.precio + "€u --- " + precio[1] + "€ ");
-        document.getElementById("p1").innerHTML = (" Pinna --- " + pinnaObject.kilos + "kg --- " + pinnaObject.precio + "€u --- " + precio[0] + "€ ");
-        document.getElementById("p11").innerHTML = (" Papaya --- " + papayaObject.kilos + "kg --- " + papayaObject.precio + "€u --- " + precio[10] + "€ ");
-        document.getElementById("p10").innerHTML = (" Naranja --- " + naranjaObject.kilos + "kg --- " + naranjaObject.precio + "€u --- " + precio[9] + "€ ");
-        document.getElementById("p9").innerHTML = (" Mora --- " + moraObject.kilos + "kg --- " + moraObject.precio + "€u --- " + precio[8] + "€ ");
-        document.getElementById("p8").innerHTML = (" Lichi --- " + lichiObject.kilos + "kg --- " + lichiObject.precio + "€u --- " + precio[7] + "€ ");
-        document.getElementById("p7").innerHTML = (" Higo --- " + higoObject.kilos + "kg --- " + higoObject.precio + "€u --- " + precio[6] + "€ ");
-        document.getElementById("p6").innerHTML = (" Grosella --- " + grosellaObject.kilos + "kg --- " + grosellaObject.precio + "€u --- " + precio[5] + "€ ");
-        document.getElementById("p5").innerHTML = (" Fresa --- " + fresaObject.kilos + "kg --- " + fresaObject.precio + "€u --- " + precio[4] + "€ ");
-        document.getElementById("p4").innerHTML = (" Coco --- " + cocoObject.kilos + "kg --- " + cocoObject.precio + "€u --- " + precio[3] + "€ ");
-        document.getElementById("p3").innerHTML = (" Castaña --- " + castannaObject.kilos + "kg --- " + castannaObject.precio + "€u --- " + precio[2] + "€ ");
-
-        document.getElementById("separador").innerHTML = (" ------------------------------ ");
-
-        //Media y Precio Total.
-        //mediaYPrecioTotal();
-        //MostrarFrutaInviernoOVerano.
-        //inviernoVerano(arrayInviernoVerano);
-        //Limpiar a los 10 segundos.
-        //window.setInterval('refrescar()', 10000);
-
-        */
-    }
-
-    /**
-     * Función que recibe el array sobre invierno o verano y muestra en una nueva ventana las descripciones.
-     * @param {*} arrayIV 
-     */
-    function inviernoVerano(arrayIV) {
-        if (arrayIV.length > 0) { //Comprobamos si se ha introducido algún elemento en el array.
-            window.name = "Ventana";
-            var ventana2 = window.open("", "MsgWindow", "width=500,height=500");
-            ventana2.document.write("<hr> <p> " + arrayIV.join('\n') + " </p> <hr>");
-        }
-    }
-    function ventanaTerminarPedido() {
-        window.name = "Ventana";
-        var ventana = window.open("", "MsgWindow", "width=500,height=300");
-        ventana.document.write("<button style='font-size: 25px;' id='resultadoButton;' onclick='resultadoFinal()'>Realizar Pedido</button>");
-        ventana.document.write("<button style='font-size: 25px;' id='limpiarButton' onclick='limpiarFormulario()'>Limpiar Formulario</button>");
     }
 }
 

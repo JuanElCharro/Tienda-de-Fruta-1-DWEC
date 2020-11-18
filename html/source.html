@@ -100,37 +100,37 @@
             <form id="form" novalidate>
                 <fieldset id="fieldset1">
                     <legend>Nombre y Apellidos</legend>
-                    <label for="fname">Nombre:</label>
+                    <label id="nombreL" for="fname">Nombre:</label>
                     <input type="text" id="nombre" name="nombre" minlength="4" maxlength="15"
                         placeholder="Introduzca su nombre" required><br>
-                    <label for="lname">Apellidos:</label>
+                    <label id="apellidosL" for="lname">Apellidos:</label>
                     <input type="text" id="apellidos" name="apellidos" required
                         placeholder="Introduzca sus apellidos"><br>
                 </fieldset>
 
                 <fieldset id="fieldset2">
                     <legend>Dirección y Email</legend>
-                    <label for="dir">Dirección:</label>
+                    <label id="direccionL" for="dir">Dirección:</label>
                     <input type="text" id="direccion" name="direccion" required
                         placeholder="Introduzca su dirección"><br>
-                    <label for="email">Email:</label>
+                    <label id="emailL" for="email">Email:</label>
                     <input type="email" id="email" name="email" required placeholder="Introduzca su email"><br>
                 </fieldset>
 
                 <fieldset id="fieldset3">
                     <legend>Tipo de Pago</legend>
                     <input type="radio" id="tarjetaSi" name="tarjeta" value="si" required>
-                    <label for="si">Pago con Tarjeta</label><br>
+                    <label id="tarjetaSiL" for="si">Pago con Tarjeta</label><br>
                     <input type="radio" id="tarjetaNo" name="tarjeta" value="no" required>
-                    <label for="no">Pago a la entrega</label><br>
+                    <label id="tarjetaNoL" for="no">Pago a la entrega</label><br>
                 </fieldset>
 
                 <fieldset id="fieldset4">
                     <legend>Tarjeta de Cliente</legend>
                     <input type="radio" id="sicliente" name="cliente" value="si" required>
-                    <label for="si">SÍ tiene tarjeta de cliente</label><br>
+                    <label id="siclienteL" for="si">SÍ tiene tarjeta de cliente</label><br>
                     <input type="radio" id="nocliente" name="cliente" value="no" required>
-                    <label for="no">NO tiene tarjeta de cliente</label><br>
+                    <label id="noclienteL" for="no">NO tiene tarjeta de cliente</label><br>
 
                     <label id="codClienteL" class="codCli"> Codigo del Cliente:
                         <input type="text" name="codCliente" id="codCliente" required placeholder="Obligatorio si tiene"

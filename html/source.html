@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,77 +8,143 @@
 
     <link rel="stylesheet" href="../css/styles.css">
     <script src="../javascript/source.js"></script>
+    
 </head>
+
 <body>
     <div class="center">
         <div class="titulo">Frutas Juancho</div><br>
 
         <div class="fruta">
-            <img id="pinna" src="../pictures/piñas.jpg" alt="piña" onclick="principal('pinna')"><br>
-            Piña (4.1€ kilo)
-        </div><br>
-
-        <div class="fruta">
-            <img id="pomelo" src="../pictures/pomelos.jpg" alt="pomelo" onclick="principal('pomelo')"><br>
-            Pomelo (15.2€ kilo)
-        </div><br>
-
-        <div class="fruta">
-            <img id="castanna" src="../pictures/castañas.jpg" alt="castaña" onclick="principal('castanna')"><br>
-            Castaña (1.3€ kilo)
-        </div><br>
-
-        <div class="fruta">
-            <img id="coco" src="../pictures/cocos.jpg" alt="coco" onclick="principal('coco')"><br>
-            Coco (6.4€ kilo)
-        </div><br>
-
-        <div class="fruta">
-            <img id="fresa" src="../pictures/fesas.jpg" alt="fresa" onclick="principal('fresa')"><br>
-            Fresa (2.5€ kilo)
-        </div><br>
-
-        <div class="fruta">
-            <img id="grosella" src="../pictures/grosellas.jpg" alt="grosella" onclick="principal('grosella')"><br>
-            Grosella (10.6€ kilo)
-        </div><br>
-
-        <div class="fruta">
-            <img id="higo" src="../pictures/higos.jpg" alt="higo" onclick="principal('higo')"><br>
-            Higo (5.7€ kilo)
-        </div><br>
-
-        <div class="fruta">
-            <img id="lichi" src="../pictures/lichis.jpg" alt="lichi" onclick="principal('lichi')"><br>
-            Lichi (20.8€ kilo)
-        </div><br>
-
-        <div class="fruta">
-            <img id="mora" src="../pictures/moras.jpg" alt="mora" onclick="principal('mora')"><br>
-            Mora (7.9€ kilo)
-        </div><br>
-
-        <div class="fruta">
-            <img id="naranja" src="../pictures/naranjas.jpg" alt="naranja" onclick="principal('naranja')"><br>
-            Naranja (2.11€ kilo)
-        </div><br>
-
-        <div class="fruta">
-            <img id="papaya" src="../pictures/papayas.jpg" alt="papaya" onclick="principal('papaya')"><br>
-            Papaya (8.12€ kilo)
-        </div><br>
-
-        <p id="p0"></p><p id="p1"></p><p id="p2"></p><p id="p3"></p><p id="p4"></p>
-        <p id="p5"></p><p id="p6"></p><p id="p7"></p><p id="p8"></p>
-        <p id="p9"></p><p id="p10"></p><p id="p11"></p> <p id="separador"></p>
-        <p id="p12"></p> <p id="p13"></p> 
-
-        <div class="mostrar">
-            <button onclick="resultadoFinal()">Finalizar Pedido</button>
+            <div class="tooltip">
+                <img id="pinna" src="../pictures/piñas.jpg" alt="piña"><br>
+                Piña (4.1€ kilo) <span class="tooltiptext"></span></div>
+            <input type="text" placeholder="Introduzca los kilos" id="pinnaA" name="pinnaA">
         </div>
 
+        <div class="fruta">
+            <div class="tooltip">
+                <img id="pomelo" src="../pictures/pomelos.jpg" alt="pomelo" ><br>
+                Pomelo (15.2€ kilo) <span class="tooltiptext"></span></div>
+            <input type="text" placeholder="Introduzca los kilos" id="pomeloA" name="pomeloA">
+        </div>
+
+        <div class="fruta">
+            <div class="tooltip">
+                <img id="castanna" src="../pictures/castañas.jpg" alt="castaña" ><br>
+                Castaña (1.3€ kilo) <span class="tooltiptext"></span></div>
+            <input type="text" placeholder="Introduzca los kilos" id="castannaA" name="castannaA">
+        </div>
+
+        <div class="fruta">
+            <div class="tooltip">
+                <img id="coco" src="../pictures/cocos.jpg" alt="coco" ><br>
+                Coco (6.4€ kilo)<span class="tooltiptext"></span></div>
+            <input type="text" placeholder="Introduzca los kilos" id="cocoA" name="cocoA">
+        </div>
+
+        <div class="fruta">
+            <div class="tooltip">
+                <img id="fresa" src="../pictures/fesas.jpg" alt="fresa" ><br>
+                Fresa (2.5€ kilo)<span class="tooltiptext"></span></div>
+            <input type="text" placeholder="Introduzca los kilos" id="fresaA" name="fresaA">
+        </div>
+
+        <div class="fruta">
+            <div class="tooltip">
+                <img id="grosella" src="../pictures/grosellas.jpg" alt="grosella" ><br>
+                Grosella (10.6€ kilo)<span class="tooltiptext"></span></div>
+            <input type="text" placeholder="Introduzca los kilos" id="grosellaA" name="grosellaA">
+        </div>
+
+        <div class="fruta">
+            <div class="tooltip">
+                <img id="higo" src="../pictures/higos.jpg" alt="higo" ><br>
+                Higo (5.7€ kilo)<span class="tooltiptext"></span></div>
+            <input type="text" placeholder="Introduzca los kilos" id="higoA" name="higoA">
+        </div>
+
+        <div class="fruta">
+            <div class="tooltip">
+                <img id="lichi" src="../pictures/lichis.jpg" alt="lichi"><br>
+                Lichi (20.8€ kilo)<span class="tooltiptext"></span></div>
+            <input type="text" placeholder="Introduzca los kilos" id="lichiA" name="lichiA">
+        </div>
+
+        <div class="fruta">
+            <div class="tooltip">
+                <img id="mora" src="../pictures/moras.jpg" alt="mora" ><br>
+                Mora (7.9€ kilo)<span class="tooltiptext"></span></div>
+            <input type="text" placeholder="Introduzca los kilos" id="moraA" name="moraA">
+        </div>
+
+        <div class="fruta">
+            <div class="tooltip">
+                <img id="naranja" src="../pictures/naranjas.jpg" alt="naranja" ><br>
+                Naranja (2.11€ kilo)<span class="tooltiptext"></span></div>
+            <input type="text" placeholder="Introduzca los kilos" id="naranjaA" name="naranjaA">
+        </div>
+
+        <div class="fruta">
+            <div class="tooltip">
+                <img id="papaya" src="../pictures/papayas.jpg" alt="papaya" ><br>
+                Papaya (8.12€ kilo)<span class="tooltiptext"></span></div>
+            <input type="text" placeholder="Introduzca los kilos" id="papayaA" name="papayaA">
+        </div>
     </div>
 
     <div id="barraLateral"></div>
+
+    <div class="mostrar">
+        <fieldset>
+            <form id="form" novalidate>
+                <fieldset id="fieldset1">
+                    <legend>Nombre y Apellidos</legend>
+                    <label id="nombreL" for="fname">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" minlength="4" maxlength="15"
+                        placeholder="Introduzca su nombre" required><br>
+                    <label id="apellidosL" for="lname">Apellidos:</label>
+                    <input type="text" id="apellidos" name="apellidos" required
+                        placeholder="Introduzca sus apellidos"><br>
+                </fieldset>
+
+                <fieldset id="fieldset2">
+                    <legend>Dirección y Email</legend>
+                    <label id="direccionL" for="dir">Dirección:</label>
+                    <input type="text" id="direccion" name="direccion" required
+                        placeholder="Introduzca su dirección"><br>
+                    <label id="emailL" for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Introduzca su email"><br>
+                </fieldset>
+
+                <fieldset id="fieldset3">
+                    <legend>Tipo de Pago</legend>
+                    <input type="radio" id="tarjetaSi" name="tarjeta" value="si" required>
+                    <label id="tarjetaSiL" for="si">Pago con Tarjeta</label><br>
+                    <input type="radio" id="tarjetaNo" name="tarjeta" value="no" required>
+                    <label id="tarjetaNoL" for="no">Pago a la entrega</label><br>
+                </fieldset>
+
+                <fieldset id="fieldset4">
+                    <legend>Tarjeta de Cliente</legend>
+                    <input type="radio" id="sicliente" name="cliente" value="si" required>
+                    <label id="siclienteL" for="si">SÍ tiene tarjeta de cliente</label><br>
+                    <input type="radio" id="nocliente" name="cliente" value="no" required>
+                    <label id="noclienteL" for="no">NO tiene tarjeta de cliente</label><br>
+
+                    <label style="display: none;" id="codClienteL" class="codCli"> Codigo del Cliente:
+                        <input style="display: none;" type="text" name="codCliente" id="codCliente" required placeholder="Obligatorio si tiene"
+                            pattern="[a-zA-Z]{3}[0-9]{4}(/|_|.|#|&)$">
+                    </label>
+                </fieldset>
+
+            </form>
+        </fieldset>
+
+        <button id="resultadoButton" >Enviar Formulario</button>
+        <button id="limpiarButton" >Limpiar Formulario</button>
+    </div>
+
 </body>
+
 </html>
